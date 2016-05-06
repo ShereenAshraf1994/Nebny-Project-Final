@@ -1,0 +1,27 @@
+<head><h1>Sign Up</h1></head>
+
+  
+
+    <form action="" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
+        {{ form.first_name.label }}
+        {{ form.first_name }}
+        <br><br><br>
+        {{ form.last_name.label }}
+        {{ form.last_name }}
+        <br><br><br>
+        {{ form.username.label }}
+        {{ form.username }}
+        <br><br><br>
+        {{ form.email.label }}
+        {{ form.email }}
+        <br><br><br>
+        {{ form.password1.label }}
+        {{ form.password1 }}<br><br><br>
+        {{ form.password2.label }}
+        {{ form.password2 }}<br><br>
+      
+        
+        <input type="submit" value="Submit">
+    </form>
+
+ 

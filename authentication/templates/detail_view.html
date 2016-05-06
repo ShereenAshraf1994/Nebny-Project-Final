@@ -1,0 +1,8 @@
+<h1>Member Details</h1>
+<p>username: {{ user.username }}</p>
+<p>First Name: {{ user.first_name}}</p>
+<p>Last Name: {{ user.last_name}}</p>
+<p>E-mail : {{user.email}}</p>
+
+
+<a href="{% url 'user-edit' user.pk %}">Edit Profile</a>

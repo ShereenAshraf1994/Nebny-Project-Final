@@ -1,0 +1,12 @@
+<html>
+<head><h1>Committies :</h1><br><br>
+</head>
+<body>
+{% for committie in object_list %}
+<a href="{% url 'comm-details' committie.pk %}"><h3>{{committie.name}}</h3></a><br>
+{% empty %}
+	<p>No products yet.</p>
+{% endfor %}
+
+</body>
+</html>
