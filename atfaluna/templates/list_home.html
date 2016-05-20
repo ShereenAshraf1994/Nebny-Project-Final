@@ -1,0 +1,4 @@
+{% for p in object_list %}
+<br>
+<a href="{% url 'home-details'  p.pk %}"> {{p.address}} </a><br>
+{% endfor %}

@@ -1,0 +1,58 @@
+<form action="" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
+
+<h2> :بيانات العائلة</h2>
+
+
+	<h3>نسبة الفقر<br>
+	{{form.poverty_level}}<br>
+	عدد افراد الاسرة<br>
+	{{form.family_members}}<br>
+	هل يوجد اشخاص اخرين يعيشون معهم فى المنزل؟<br>
+	{{form.other_members}}<br>
+	ملاحظات اخرى<br>
+	{{form.other_notes}}<br>
+	هل يوجد شخص امى<br>
+	{{form.is_member_ommi}}<br>
+	اذكر الاسم<br>
+	{{form.ommi}}<br>
+	 اذكرالمواعيد المناسبة للدروس<br>
+	{{form.ommi_free_time}}<br>
+	معاشات شئون اجتماعية <br>
+	{{form.is_ma3ashat_sho2on_egtma3eya}}<br>
+	 معاشات تامينات<br>
+	{{form.is_ma3ashat_ta2meneya}}<br>
+	اى مصادر دخل اخرى <br>
+	{{form.masdar_da5l}}<br>
+	المصروفات:  تكلفة الطعام<br> 
+	{{form.food_expenses}}<br>
+	مواصلات<br>
+	{{form.transportation_expenses}}<Br>
+	مجموع المصاريف الدراسية<br>
+	{{form.education_expenses}}<br>
+	اجمالى مصروفات العلاج <br>
+	{{form.total_health_care_expenses}}<br>
+	كهرباء<br>
+	{{form.electricity_expenses}}<br>
+	 مياه <br>
+	{{form.water_expenses}}<br>
+	تكلفة الموبايلات <br>
+	{{form.mobile_expenses}}<br>
+	إيجار <br>
+	{{form.rent_expenses}}<br>
+	انابيب الغاز<br>
+	{{form.gas_expenses}}<br>
+	التدخين<br>
+	{{form.smoking_expenses}}<br>
+	هل لديهم بطاقة تموينية؟<br>
+	{{form.is_tamweneya_card}}<br>
+	عدد الافراد المسجلين على البطاقة<br>
+	{{form.no_people_in_tamweneya_card}}<br>
+
+
+
+	
+
+
+
+        <input type="submit" value="Next">
+    </>

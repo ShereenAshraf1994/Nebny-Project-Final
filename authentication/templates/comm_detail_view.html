@@ -2,8 +2,11 @@
 
 <p><h2>Name:</h2> {{ object.name }}</p><br>
 <p><h2>Description:</h2> {{ object.description }}</p><br>
-<p><h2>Head: </h2> {{object.head.first_name}}  {{object.head.last_name}}</p><br>
-<p><h2>Members: </h2>{{object.member}}</p>
+<p><h2>Head: </h2> {{object.head}}  {{object.head.last_name}}</p><br>
+<p><h2>Members: </h2>
+{% for m in members %}
+{{m.user.username}}</p>
+{% endfor %}
 <br>
 
     

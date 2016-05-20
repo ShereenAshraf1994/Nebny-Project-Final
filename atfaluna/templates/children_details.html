@@ -1,0 +1,58 @@
+
+
+  			<h2>الاسم <br>
+		{{object.name}}<br>
+	تاريخ الميلاد<br>
+		{{object.birthdate}}<br>
+		السنة الدراسية <br>
+		{{object.education_level}}<br>
+		اسم المدرسة<br>
+		{{object.school_name}}<br>
+		عدد المواد التى يأخد فيها دروس<br>
+		{{object.doros_number}}<br>
+		هيئة الدروس<br>
+		{{object.doros_type}}<br>
+		التكلفة المالية للدروس<br>
+		{{object.doros_expenses}}<br>
+		دروس تقوية<br>
+		{{object.doros_needed}}<br>
+		خريج<br>
+		{{object.is_graduate}}<br>
+		إذا كان خريج، إكتب المؤهل<br>
+		{{object.gradutae_degree}}<br>
+		هل يعمل؟<br>
+			{{object.is_worker}}<br>
+			نوع العمل <br>
+			{{object.work}}<br>
+		قيمة الدخل <br>
+		{{object.salary}}<br>
+		{{object.per}}<br>
+		مريض؟<br>
+	{{object.is_sick}}<br>
+	المرض<br>
+	{{object.disease}}<br>
+	العلاج<br>
+	{{object.medecine}}<br>
+	تكلفة العلاج  <br>
+	{{object.health_care_expenses}}<br>
+	 جهة الانفاق على العلاج<br>
+	{{object.health_care_paid_by}}<br>
+	هل يريد ان يتم الكشف عليه؟<br>
+	{{object.want_kashf}}<br>
+	اطراف صناعيية<br>
+	{{object.is_atraf_sena3eya}}<br>
+	غسيل كلوي<br>
+	{{object.is_3aseel_kalawy}}<br>
+	عملية جراحية<br>
+	{{object.is_surgery_needed}}<br>
+	ذوي الإحتياجات الخاصة؟<br>
+	{{object.is_special_needs}}<br>
+	
+{% if member.committie.name == 'Databasing' %}
+
+	<a href="{% url 'family-details' family.pk %}"> بيانات اسرة الطفل</a><br><br>  
+{% endif %}
+
+{% if member == family_member %} 
+	<a href="{% url 'update-child' object.pk %}">تغيير بيانات الطفل</a><br><br>
+{% endif %}

@@ -1,0 +1,22 @@
+<form action="" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
+<h2>هل يوجد اقساط?</h2>
+
+
+<h3>الشئ المشترى<br>
+{{form.name}}<br>
+
+قيمة القسط الواحد<br>
+
+{{form.installment_value}}<br>
+
+ عدد الاقساط المتبقية<br>
+ {{form.no_installments_left}}<br>
+
+
+
+
+
+
+
+        <input type="submit" value="Next">
+    </form>

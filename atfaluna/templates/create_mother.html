@@ -1,0 +1,72 @@
+<h2> :بيانات الام
+
+
+
+<form action="" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
+<h3>الاسم<br>
+{{form.name}}<br>
+تاريخ الميلاد<br>
+{{form.birthdate}}<br>
+السن<br>
+{{form.age}}<br>
+المستوى التعليمى<br>
+{{form.education_level}}<br>
+هل هو عائل؟<br>
+{{form.is_3a2el}}<br>
+العمل<br>
+{{form.job}}<br>
+ دائم ام متقطع <br>
+{{form.job_status}}<br>
+الحالة الاجتماعية <br>
+{{form.marital_status}}<br>
+الرقم القومى<br>
+{{form.national_id}}<br>
+الموبايل<br>
+{{form.mobile}}<br>
+المرتب<br>
+{{form.salary}}<br>
+حالة المرتب<br>
+{{form.work_status}}<br>
+
+مريض؟<br>
+{{form.is_sick}}<br>
+المرض<br>
+{{form.disease}}<br>
+العلاج<br>
+{{form.medecine}}<br>
+تكلفة العلاج  <br>
+{{form.health_care_expenses}}<br>
+ جهة الانفاق على العلاج<br>
+{{form.health_care_paid_by}}<br>
+هل يريد ان يتم الكشف عليه؟<br>
+{{form.want_kashf}}<br>
+اطراف صناعيية<br>
+{{form.is_atraf_sena3eya}}<br>
+غسيل كلوي<br>
+{{form.is_3aseel_kalawy}}<br>
+عملية جراحية<br>
+{{form.is_surgery_needed}}<br>
+ذوي الإحتياجات الخاصة؟<br>
+{{form.is_special_needs}}<br>
+هل لدى الحالة الرغبة في إنشاء مشروع؟<br>
+{{form.want_project}}<br>
+فكرة المشروع <br>
+{{form.project_idea}}<br>
+ تكلفة التشغيل<br>
+{{form.project_cost}}<br>
+الربح الشهرى<br>
+{{form.project_profit}}<br>
+ملاحظات اخرى<br>
+
+{{form.project_notes}}<br>
+Forward Case to :<br>
+HealthCare?<br>
+{{form.health_care_needed}}<br>
+Education?<br>
+{{form.education_needed}}<br>
+Economic Development?<br>
+{{form.economic_development_needed}}<br>
+
+
+        <input type="submit" value="Submit">
+    </form>

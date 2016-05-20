@@ -1,0 +1,25 @@
+<h2> Notification Details </h2>
+Type: {{notification.message}}<br>
+{% if notification.sender == None %}
+{% else %}
+
+{% if notification.message == "You have new ba7s hala" %}
+Sender: {{notification.sender}} <br>
+Committie: {{notification.sender.committie}}
+<a href="{% url 'ba7s7ala-list'  %}"><h2>Check your ba7s 7ala list</h2></a><br><br>
+{% else %}
+<h2> Profile details </h2>
+<p>{{notification.sender}} Details</p>
+<p>username: {{ notification.sender.user.username }}</p>
+<p>First Name: {{ notification.sender.user.first_name}}</p>
+<p>Last Name: {{notification.sender.user.last_name}}</p>
+<p>E-mail : {{notification.sender.user.email}}</p>
+<p> Committie: {{notification.sender.committie}}
+
+{% if notification.sender.approved == False %}
+
+	<a href="{% url 'approve-member' notification.sender.pk %}"><h2>Approve Request</h2></a><br><br>
+{% endif %}
+{% endif %}
+
+{% endif %}

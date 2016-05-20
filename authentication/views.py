@@ -6,7 +6,7 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.views.generic import CreateView, TemplateView,View, UpdateView, ListView, DeleteView
 from django.views.generic.detail import DetailView
-from authentication.forms import UserForm
+from authentication.forms import *
 from django.contrib.auth.forms import UserCreationForm
 from authentication.models import *
 
@@ -20,12 +20,12 @@ class IndexView(ListView):
 			member = Member.objects.get(user=self.request.user)
 			#user=customuser.user
 			#unread=user.notifications.unread()	
-			
+
 			context['member']=member
 		return context
 
 class CreateUser(FormView):
-	template_name= 'SignUp.html'
+	template_name= 'SignUp1.html'
 	form_class= UserForm
 
 	def post(self,request,*args,**kwargs):
@@ -42,14 +42,68 @@ class CreateUser(FormView):
 				password=form.cleaned_data['password2'])
 
 		login(self.request, user1)
-		member = Member()
-		member.user = user1
-		member.is_head = False
-		member.is_UB = False
-		member.is_deleted = False
-		member.save()
 		
-		return HttpResponseRedirect(reverse_lazy('home'))
+		
+		return HttpResponseRedirect(reverse_lazy('create-member'))
+
+
+class CreateMember(CreateView):
+	model = Member
+	template_name= 'SignUp2.html'
+	fields=['guc_id','committie','faculty','position']
+
+	def get_context_data(self, **kwargs):
+		context = super(CreateMember, self).get_context_data(**kwargs)
+		return context
+
+	
+	def form_valid(self, form):
+		u=self.request.user
+		form.instance.user=u
+		form.save()
+	
+		
+		#user = User1.objects.get(id)
+		#form.Product.use1 = user
+		#form.instance.employee.user= self.request.user
+		return super(CreateMember, self).form_valid(form)
+
+	def get_success_url(self):
+		notification = Notification()
+		notification.message="New Profile request"
+		if(self.object.position == "Member"):		
+			notification.reciver = self.object.committie.head
+
+		if(self.object.position == "Head"):
+			core = Core.objects.all()
+			for c in core:
+				for comm in c.committies.all():
+					if (self.object.committie == comm):
+						notification.reciver = c.core_president
+
+
+			support = Support.objects.all()
+			for s in support:
+				for comm in s.committies.all():
+					if (self.object.committie == comm):
+						notification.reciver = c.support_president
+
+		if(self.object.position == "Core President"):
+			president = Member.objects.get(position="President")
+			notification.reciver = president			
+
+
+
+
+		notification.reciver.new_messages +=1
+		notification.sender = self.object
+		notification.reciver.save()
+		notification.save()
+			
+	
+		return reverse('home')
+	
+
 
 class UserSignin(View):
 	model = User
@@ -81,18 +135,42 @@ class UserDetailView(DetailView):
 	template_name='detail_view.html'
 	model = User
 
-def get_context_data(self, **kwargs):
-        context = super(UserDetailView, self).get_context_data(**kwargs)
-        context['user'] = User
-        return context
+	def get_context_data(self, **kwargs):
+		context = super(UserDetailView, self).get_context_data(**kwargs)
+		member = Member.objects.get(user=self.request.user)
+		context['member'] = member
+		return context
 
 class UserEdit(UpdateView):
     model = User
-    fields = ['first_name','last_name']
+    fields = ['first_name','last_name','email']
     template_name = 'user_update.html'
 
     def get_success_url(self):
     	return reverse('user-detail', kwargs={'pk': self.kwargs['pk']})
+
+class UpdatePassword(CreateView):
+
+	template_name= 'update_password.html'
+	form_class= PasswordForm
+
+	def post(self,request,*args,**kwargs):
+
+		form=self.get_form()
+		form.username = self.request.user.username
+		form.save()
+		if form.is_valid():
+			return self.form_valid(form)
+		else:
+			return JsonResponse({'err_List':self.get_form().errors,'success':0})
+
+	def form_valid(self, form):
+		
+		
+		
+		return HttpResponseRedirect(reverse_lazy('home'))
+
+
 
 class ListCommittie(ListView):
 	template_name='list_committies.html'
@@ -102,13 +180,61 @@ class ListCommittie(ListView):
 		context = super(ListCommittie, self).get_context_data(**kwargs)
 		#context['products_list'] = Product.objects.filter(user=self.request.user)
 		return context
+
 class CommittieDetailView(DetailView):
 
 	template_name='comm_detail_view.html'
 	model = Committie
 
-def get_context_data(self, **kwargs):
-        context = super(CommittieDetailView, self).get_context_data(**kwargs)
-        context['head'] = User
-        context['member'] = User
-        return context
+	def get_context_data(self, **kwargs):
+		context = super(CommittieDetailView, self).get_context_data(**kwargs)
+		c_id = self.kwargs['pk']
+		committie1 = Committie.objects.get(id=c_id)
+		members = Member.objects.filter(committie=committie1)
+		context['members']=members
+
+		return context
+
+
+class ListNotification(ListView):
+	template_name='list_notification.html'
+	model = Notification
+
+	def get_context_data(self, **kwargs):
+		context = super(ListNotification, self).get_context_data(**kwargs)
+		member = Member.objects.get(user=self.request.user)
+		context['member']=member
+		member.new_messages=0
+		member.save()
+		return context
+
+
+class NotificationDetails(DetailView):
+
+	template_name='notification_details.html'
+	model = Notification
+
+	def get_context_data(self, **kwargs):
+		context = super(NotificationDetails, self).get_context_data(**kwargs)
+		notification = Notification.objects.get(id=self.kwargs['pk'])
+		notification.is_read = True
+		notification.save()
+		context['notification'] = notification
+		return context
+
+
+class ApproveMember(View):
+	model = Member
+	def get(self,request,*args, **kwargs):
+		 member = Member.objects.get(id=self.kwargs['pk'])
+		 member.approved=True
+		 if (member.position == "Head"):
+		 	member.is_head = True
+		 if (member.position == "Core President"):
+		 	member.is_UB = True
+		 if (member.position == "Support President"):
+		 	member.is_UB = True
+
+		 member.save()
+		 return HttpResponseRedirect (reverse('home'))
+		

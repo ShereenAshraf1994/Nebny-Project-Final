@@ -1,0 +1,5 @@
+{% for p in object_list %}
+ <a href="{% url 'family-details' p.pk %}">{{p.father.name}} </h2></a><br>
+ 
+
+{% endfor %}

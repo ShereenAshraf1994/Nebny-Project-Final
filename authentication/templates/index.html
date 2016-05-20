@@ -6,9 +6,30 @@
     <h1>HOMEPAGE</h1>
 
     {% if member.user.is_authenticated %}
+        {% if member.approved == True %}
     	<a href="{% url 'signout-user' %}"><h2>Sign out</h2></a><br><br>
     	<a href="{% url 'user-detail' user.id %}"><h2>Member Profile</h2></a><br><br>
     	<a href="{% url 'list-committie'  %}"><h2>Nebny Committies</h2></a><br>
+        <a href="{% url 'listnotifications'  %}"><h2>Notifications ({{member.new_messages}})</h2></a><br>
+        {% if member.committie.name == 'Databasing' %}
+         <a href="{% url 'create-family'  %}"><h2>Add ba7s 7ala </h2></a><br>
+         <a href="{% url 'database'  %}"><h2>Database </h2></a><br>
+         {% endif %}
+         <a href="{% url 'ba7s7ala-list'  %}"><h2>ba7s 7ala list </h2></a><br>
+
+
+        
+
+        
+       
+         
+
+
+        {% else %}
+        The Upper Board has been notified, please wait until it approves your request.
+        <a href="{% url 'signin-user' %}"><h2>Sign in</h2></a><br>
+        <a href="{% url 'create-user' %}"><h2>Sign up</h2></a>
+        {% endif %}
 
 
         

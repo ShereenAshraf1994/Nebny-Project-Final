@@ -1,0 +1,135 @@
+	
+
+	<h1> بيانات الاسرة</h1>
+	<h3>الام<br>
+	 {{object.mother}}<br><a href="{% url 'mother-details' object.mother.pk  %}">بيانات الام </a><br>
+	الاب<br>
+	 {{object.father}}<br><a href="{% url 'father-details'  object.father.pk %}">بيانات الاب </a><br>
+	المنزل<br>
+	 {{object.home}}<br><a href="{% url 'home-details' object.home.pk  %}">بيانات المنزل </a><br>
+	الاطفال<br>
+	{% if object.member.user == user %}
+ 	<a href="{% url 'add-children' object.pk %}">اضافة طفل </a><br>
+ 	{% endif %}
+ 	{% if object.member.is_UB == True %}
+ 	<a href="{% url 'add-children' object.pk %}">اضافة طفل </a><br>
+ 	{% endif %}
+	{% for p in object.children.all %}
+ {{p.name}}<br><a href="{% url 'children-details' object.pk %}">بيانات الطفل </a><br>
+ 
+	{% endfor %}
+	
+	نسبة الفقر<br>
+	{{object.poverty_level}}<br>
+	عدد افراد الاسرة<br>
+	{{object.family_members}}<br>
+	هل يوجد اشخاص اخرين يعيشون معهم فى المنزل؟<br>
+	{% if object.other_members == True %}<br>
+		نعم<br>
+	{% else %}
+	لا<br>
+	{% endif %}
+	ملاحظات اخرى<br>
+	{{object.other_notes}}<br>
+	هل يوجد شخص امى<br>
+	{% if object.is_member_ommi == True %}
+	نعم<br>
+	{% else %}
+	لا<br>
+	{% endif %}
+	اذكر الاسم<br>
+	{{object.ommi}}<br>
+	 اذكرالمواعيد المناسبة للدروس<br>
+	{{object.ommi_free_time}}<br>
+	معاشات شئون اجتماعية <br>
+	{% if object.is_ma3ashat_sho2on_egtma3eya == True %}
+		نعم
+	{% else %}
+	لا
+	{% endif %}<br>
+	 معاشات تامينات<br>
+	{% if object.is_ma3ashat_ta2meneya == True %}<br>
+		نعم<br>
+	{% else %}
+	لا<br>
+	{% endif %}
+	اى مصادر دخل اخرى <br>
+	{{object.masdar_da5l}}<br>
+	المصروفات:  تكلفة الطعام<br> 
+	{{object.food_expenses}}<br>
+	مواصلات<br>
+	{{object.transportation_expenses}}<Br>
+	مجموع المصاريف الدراسية<br>
+	{{object.education_expenses}}<br>
+	اجمالى مصروفات العلاج <br>
+	{{object.total_health_care_expenses}}<br>
+	كهرباء<br>
+	{{object.electricity_expenses}}<br>
+	 مياه <br>
+	{{object.water_expenses}}<br>
+	تكلفة الموبايلات <br>
+	{{object.mobile_expenses}}<br>
+	إيجار <br>
+	{{object.rent_expenses}}<br>
+	انابيب الغاز<br>
+	{{object.gas_expenses}}<br>
+	التدخين<br>
+	{{object.smoking_expenses}}<br>
+	هل لديهم بطاقة تموينية؟<br>
+	{% if object.is_tamweneya_card == True %}<br>
+	نعم<br>
+	{% else %}
+	لا<br>
+	{% endif %}
+	عدد الافراد المسجلين على البطاقة<br>
+	{{object.no_people_in_tamweneya_card}}<br>
+	الاقساط<br>
+	{% if object.member.user == user %}
+ 	<a href="{% url 'add-installment' object.pk %}">اضافة قسط </a><br>
+ 	{% endif %}
+ 	{% if object.member.is_UB == True %}
+ 	<a href="{% url 'add-installment' object.pk %}">اضافة قسط </a><br>
+ 	{% endif %}
+	{% for p in object.installment.all %}
+		{% if member.committie.name == 'Databasing' %}
+	 		<a href="{% url 'installment-details'  p.pk %}">{{p.name}} </a><br>
+		{% else %}
+		{{p.name}}<br>
+		{% if object.member.is_UB == True %}
+			<a href="{% url 'installment-details'  p.pk %}">{{p.name}} </a><br>
+		{% endif %}
+		{% endif %}
+	{% endfor %}
+
+	اسم من ادخل البحث<br>
+	{{object.member}}<br>
+
+{% if member == family_member %}
+
+<a href="{% url 'update-family' object.pk %}">تغيير بيانات الاسرة</a><br><br>
+
+{% endif %}
+
+{% if object.member.is_UB == True %}
+<a href="{% url 'update-family' object.pk %}">تغيير بيانات الاسرة</a><br><br>
+
+{% endif %}
+
+
+مسح بيانات الاب
+
+
+مسح بيانات الام
+
+
+مسح بيانات الطفل
+
+مسح بيانات القسط
+
+مسح بيانات الاسرة<
+
+	
+
+
+
+  

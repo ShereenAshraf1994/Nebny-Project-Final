@@ -1,0 +1,19 @@
+<head><h1>Continue Sign Up</h1></head>
+
+  
+
+    <form action="" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
+        {{form.guc_id.label}} <br>
+        {{form.guc_id}}<br>
+        {{form.faculty.label}}
+        {{form.faculty}}<br>
+        {{form.committie.label}}
+        {{form.committie}}<br>
+        {{form.position.label}}
+        {{form.position}}<br>
+      
+        
+        <input type="submit" value="Submit">
+    </form>
+
+ 

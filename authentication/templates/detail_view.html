@@ -3,6 +3,13 @@
 <p>First Name: {{ user.first_name}}</p>
 <p>Last Name: {{ user.last_name}}</p>
 <p>E-mail : {{user.email}}</p>
+<p> Committie:{{member.committie}}
+<p>Position: {{member.position}}<br>
 
 
 <a href="{% url 'user-edit' user.pk %}">Edit Profile</a>
+
+<a href="{% url 'update-password' user.pk %}">Change Password</a>
+
+
+

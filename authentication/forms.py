@@ -18,3 +18,16 @@ def save(self):
 				first_name=self.cleaned_data['first_name'],
 				last_name=self.cleaned_data['last_name'])
  	return user
+
+class PasswordForm(UserCreationForm):
+	model = User
+	fields = {'password1','password2','username'}
+
+	def save(self):
+ 		user=User.objects.get(username=form.username)
+ 		user = user.set_password(
+ 				
+				password1=self.cleaned_data['password1'],
+				password2=self.cleaned_data['password2'])
+				
+ 		return user

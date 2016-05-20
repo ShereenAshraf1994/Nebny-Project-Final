@@ -1,0 +1,15 @@
+<h1>بيانات القسط </h1>
+<h3>الشئ المشترى<br>
+{{object.name}}<br>
+
+قيمة القسط الواحد<br>
+
+{{object.installment_value}}<br>
+
+ عدد الاقساط المتبقية<br>
+ {{object.no_installments_left}}<br>
+
+
+ <a href="{% url 'family-details' family.pk %}"> بيانات اسرة القسط</a><br><br>
+
+<a href="{% url 'update-installment' object.pk %}">تغيير بيانات القسط</a><br><br>

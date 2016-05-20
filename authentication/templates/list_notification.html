@@ -1,0 +1,20 @@
+<h3> Notifications </h3>
+<h3> New Notifications </h3>
+{% for n in object_list %}
+	{% if n.reciver == member %}
+		{% if n.is_read == False %}
+			<a href="{% url 'notificationdetails' n.pk %}"><h2>{{n.message}}</h2></a>
+				
+		{% endif %}
+	{% endif %}
+{% endfor %}
+
+<h3> Old Notifications </h3>
+{% for n in object_list %}
+	{% if n.reciver == member %}
+		{% if n.is_read == True %}
+		<a href="{% url 'notificationdetails' n.pk %}"><h2>{{n.message}}</h2></a>
+				
+		{% endif %}
+	{% endif %}
+{% endfor %}

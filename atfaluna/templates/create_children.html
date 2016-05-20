@@ -1,0 +1,64 @@
+
+  <form action="" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
+  بيانات الطفل:<br>
+  			الاسم: <br>
+		{{form.name}}<br>
+	تاريخ الميلاد:<br>
+		{{form.birthdate}}<br>
+		السنة الدراسية :
+		{{form.education_level}}<br>
+		اسم المدرسة:
+		{{form.school_name}}<br>
+		عدد المواد التى يأخد فيها دروس:
+		{{form.doros_number}}<br>
+		هيئة الدروس:
+		{{form.doros_type}}<br>
+		التكلفة المالية للدروس:
+		{{form.doros_expenses}}<br>
+		دروس تقوية:
+		{{form.doros_needed}}<br>
+		خريج:
+		{{form.is_graduate}}<br>
+		إذا كان خريج، إكتب المؤهل:
+		{{form.gradutae_degree}}<br>
+		هل يعمل؟:
+			{{form.is_worker}}<br>
+			نوع العمل <br>
+			{{form.work}}<br>
+		قيمة الدخل <br>
+		{{form.salary}}<br>
+		{{form.per}}<br>
+		مريض؟<br>
+	{{form.is_sick}}<br>
+	المرض<br>
+	{{form.disease}}<br>
+	العلاج<br>
+	{{form.medecine}}<br>
+	تكلفة العلاج  <br>
+	{{form.health_care_expenses}}<br>
+	 جهة الانفاق على العلاج<br>
+	{{form.health_care_paid_by}}<br>
+	هل يريد ان يتم الكشف عليه؟<br>
+	{{form.want_kashf}}<br>
+	اطراف صناعيية<br>
+	{{form.is_atraf_sena3eya}}<br>
+	غسيل كلوي<br>
+	{{form.is_3aseel_kalawy}}<br>
+	عملية جراحية<br>
+	{{form.is_surgery_needed}}<br>
+	ذوي الإحتياجات الخاصة؟<br>
+	{{form.is_special_needs}}<br>
+	Forward Case to :<br>
+	HealthCare?<br>
+	{{form.health_care_needed}}<br>
+	Education?<br>
+	{{form.education_needed}}<br>
+	Economic Development?<br>
+	{{form.economic_development_needed}}<br>
+	Relif?<br>
+	{{form.relif_needed}}<br>
+
+
+
+        <input type="submit" value="Submit">
+    </form>
