@@ -282,7 +282,7 @@ class CreateFather(CreateView):
 	template_name= 'create_father.html'
 	fields=['name','birthdate','age','education_level','is_3a2el','job','job_status','marital_status','national_id','mobile','work_status','salary','is_sick',
 	'disease','medecine','health_care_expenses','health_care_paid_by','want_kashf','is_atraf_sena3eya','is_3aseel_kalawy','is_surgery_needed','is_special_needs',
-	'want_project','project_idea','project_cost','project_profit','project_notes','health_care_needed','education_needed','economic_development_needed','relif_needed']
+	'want_project','project_idea','project_cost','project_profit','project_notes','health_care_needed','education_needed','economic_development_needed']
 
 
 
@@ -363,7 +363,7 @@ class CreateMother(CreateView):
 	template_name= 'create_mother.html'
 	fields=['name','birthdate','age','education_level','is_3a2el','job','job_status','marital_status','national_id','mobile','work_status','salary','is_sick',
 	'disease','medecine','health_care_expenses','health_care_paid_by','want_kashf','is_atraf_sena3eya','is_3aseel_kalawy','is_surgery_needed','is_special_needs',
-	'want_project','project_idea','project_cost','project_profit','project_notes','health_care_needed','education_needed','economic_development_needed','relif_needed']
+	'want_project','project_idea','project_cost','project_profit','project_notes','health_care_needed','education_needed','economic_development_needed']
 
 
 
