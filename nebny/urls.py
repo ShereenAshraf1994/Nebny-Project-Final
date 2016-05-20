@@ -33,6 +33,7 @@ urlpatterns = [
     #commities
     url(r'^listcommitties/$', ListCommittie.as_view(), name='list-committie'),
     url(r'^detailscommitties/(?P<pk>[0-9]+)/$', CommittieDetailView.as_view(), name='comm-details'),
+
     #notification
      url(r'^listnotifications$', ListNotification.as_view(), name='listnotifications'),
     url(r'^notificationdetials/(?P<pk>[0-9]+)/$', NotificationDetails.as_view(), name='notificationdetails'),
@@ -75,5 +76,6 @@ urlpatterns = [
         
          
            
+    url(r'^template/', TemplateView.as_view(), name='template'),
 
 ]

@@ -186,6 +186,7 @@ class CommittieDetailView(DetailView):
 	template_name='comm_detail_view.html'
 	model = Committie
 
+<<<<<<< HEAD
 	def get_context_data(self, **kwargs):
 		context = super(CommittieDetailView, self).get_context_data(**kwargs)
 		c_id = self.kwargs['pk']
@@ -237,4 +238,17 @@ class ApproveMember(View):
 
 		 member.save()
 		 return HttpResponseRedirect (reverse('home'))
+
+
 		
+class TemplateView(ListView):
+
+	template_name='template.xhtml'
+	model = User
+
+	def get_context_data(self, **kwargs):
+        context = super(TemplateView, self).get_context_data(**kwargs)
+        context['head'] = User
+        context['member'] = User
+        return context
+
