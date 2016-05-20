@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -28,9 +30,9 @@
 	<!-- GLOBAL STYLES -->
 	<!-- PAGE LEVEL STYLES -->
 	<link rel="stylesheet"
-		href="assets/plugins/bootstrap/css/bootstrap.css" />
-	<link rel="stylesheet" href="assets/css/login.css" />
-	<link rel="stylesheet" href="assets/plugins/magic/magic.css" />
+		href='{% static "plugins/bootstrap/css/bootstrap.css" %}'/>
+	<link rel="stylesheet" href='{% static "css/login.css" %}' />
+	<link rel="stylesheet" href='{% static "plugins/magic/magic.css" %}' />
 	<!-- END PAGE LEVEL STYLES -->
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -46,16 +48,16 @@
 	<!-- PAGE CONTENT -->
 	<div class="container">
 		<div class="text-center">
-			<img src="assets/img/logo.png" id="logoimg" alt=" Logo" />
+			<img src='{% static "img/logo.png" %}' id="logoimg" alt=" Logo" />
 		</div>
 		<div class="tab-content">
 			<div id="login" class="tab-pane active">
-				<form action="index.html" class="form-signin">
+				<form  class="form-signin"action="" method="post" >{% csrf_token %}
 					<p
 						class="text-muted text-center btn-block btn btn-primary btn-rect">
 						Enter your username and password</p>
-					<input type="text" placeholder="Your User Name" class="form-control" />
-					<input type="password" placeholder="password" class="form-control" />
+					<input type="text" placeholder="Your User Name" class="form-control" name='username'>
+					<input type="password" placeholder="password" class="form-control"  name='password'>
 					<button class="btn text-muted text-center btn-success"
 						type="submit">Sign in</button>
 					
@@ -104,9 +106,9 @@
 	<!--END PAGE CONTENT -->
 
 	<!-- PAGE LEVEL SCRIPTS -->
-	<script src="assets/plugins/jquery-2.0.3.min.js"></script>
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/js/login.js"></script>
+	<script src='{% static "plugins/jquery-2.0.3.min.js" %}'></script>
+	<script src='{% static "plugins/bootstrap/js/bootstrap.min.js" %}'></script>
+	<script src='{% static "js/login.js" %}'></script>
 	<!--END PAGE LEVEL SCRIPTS -->
 
 </h:body>
