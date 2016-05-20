@@ -112,3 +112,14 @@ def get_context_data(self, **kwargs):
         context['head'] = User
         context['member'] = User
         return context
+
+class TemplateView(ListView):
+
+	template_name='template.xhtml'
+	model = User
+
+def get_context_data(self, **kwargs):
+        context = super(TemplateView, self).get_context_data(**kwargs)
+        context['head'] = User
+        context['member'] = User
+        return context
