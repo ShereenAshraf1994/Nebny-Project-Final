@@ -56,8 +56,9 @@
 					<p
 						class="text-muted text-center btn-block btn btn-primary btn-rect">
 						Enter your username and password</p>
-					<input type="text" placeholder="Your User Name" class="form-control" name='username'>
-					<input type="password" placeholder="password" class="form-control"  name='password'>
+
+					<input type="text" placeholder="Your User Name" class="form-control" name='username1'>
+					<input type="password" placeholder="password" class="form-control"  name='password1'>
 					<button class="btn text-muted text-center btn-success"
 						type="submit">Sign in</button>
 					
@@ -75,17 +76,19 @@
 				</form>
 			</div>
 			<div id="signup" class="tab-pane">
-				<form action="index.html" class="form-signin">
+				<form action="" class="form-signin" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
 					<p
 						class="text-muted text-center btn-block btn btn-primary btn-rect">Please
 						Fill Details To Register</p>
-					<input type="text" placeholder="First Name" class="form-control" />
-					<input type="text" placeholder="Last Name" class="form-control" />
-					<input type="text" placeholder="Username" class="form-control" />
-					<input type="email" placeholder="Your E-mail" class="form-control" />
-					<input type="password" placeholder="password" class="form-control" />
+						<p class="text-muted text-center btn-block btn btn-primary btn-rect ">First name</p>
+						
+					<input type="text" placeholder="First Name" class="form-control" value="{{form.first_name}}" />
+					<input type="text" placeholder="Last Name" class="form-control " value="{{form.last_name}}" />
+					<input type="text" placeholder="Username" class="form-control" value="{{form.username}}"/>
+					<input type="email" placeholder="Your E-mail" class="form-control" value="{{form.email}}" />
+					<input type="password" placeholder="password" class="form-control" value="{{form.password1}}" />
 					<input type="password" placeholder="Re type password"
-						class="form-control" />
+						class="form-control" value="{{form.password2}}" />
 					<button class="btn text-muted text-center btn-success"
 						type="submit">Register</button>
 				</form>
