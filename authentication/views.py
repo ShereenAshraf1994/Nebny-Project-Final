@@ -107,7 +107,7 @@ class CreateMember(CreateView):
 
 class UserSignin(View):
 	model = User
-	template_name='SignIn.html'
+	template_name='template.html'
 
 	def get(self,request,*args, **kwargs):
 		return render(request,self.template_name)
