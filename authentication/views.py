@@ -25,7 +25,7 @@ class IndexView(ListView):
 		return context
 
 class CreateUser(FormView):
-	template_name= 'login.html'
+	template_name= 'template.html'
 	form_class= UserForm
 
 	def post(self,request,*args,**kwargs):
