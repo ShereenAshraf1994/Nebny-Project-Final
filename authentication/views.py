@@ -25,7 +25,7 @@ class IndexView(ListView):
 		return context
 
 class CreateUser(FormView):
-	template_name= 'SignUp1.html'
+	template_name= 'login.html'
 	form_class= UserForm
 
 	def post(self,request,*args,**kwargs):
@@ -107,15 +107,15 @@ class CreateMember(CreateView):
 
 class UserSignin(View):
 	model = User
-	template_name='template.html'
+	template_name='SignUp2.html'
 
 	def get(self,request,*args, **kwargs):
 		return render(request,self.template_name)
 
 	def post(self,request,*args, **kwargs):
 		user=authenticate(
-			username=request.POST['username'],
-			password=request.POST['password'])
+			username=request.POST['username1'],
+			password=request.POST['password1'])
 		if user:
 			if user.is_active:
 				login(self.request,user)
