@@ -11,10 +11,11 @@ from django.contrib.auth.forms import UserCreationForm
 from authentication.models import *
 
 class IndexView(ListView):
-	template_name = 'index.html'
+	template_name = 'template.html'
 	model = User
 	def get_context_data(self, **kwargs):
 		context = super(IndexView, self).get_context_data(**kwargs)
+		user = self.request.user
 		
 		if self.request.user.is_authenticated():
 			member = Member.objects.get(user=self.request.user)
@@ -22,10 +23,16 @@ class IndexView(ListView):
 			#unread=user.notifications.unread()	
 
 			context['member']=member
-		return context
+		return context 
+
+
+
+
 
 class CreateUser(FormView):
-	template_name= 'SignUp1.html'
+
+	template_name= 'login2.html'
+
 	form_class= UserForm
 
 	def post(self,request,*args,**kwargs):
@@ -49,7 +56,7 @@ class CreateUser(FormView):
 
 class CreateMember(CreateView):
 	model = Member
-	template_name= 'SignUp2.html'
+	template_name= 'login3.html'
 	fields=['guc_id','committie','faculty','position']
 
 	def get_context_data(self, **kwargs):
@@ -101,12 +108,15 @@ class CreateMember(CreateView):
 		notification.save()
 			
 	
-		return reverse('home')
+		return reverse('signin-user')
 	
 
 
 class UserSignin(View):
 	model = User
+
+	#template_name='template.html'
+
 	template_name='login.html'
 
 	def get(self,request,*args, **kwargs):
@@ -128,7 +138,7 @@ class UserSignin(View):
 class UserSignout(View):
 	def get(self,request,*args,**kwargs):
 		logout(request)
-		return HttpResponseRedirect(reverse_lazy('home'))
+		return HttpResponseRedirect(reverse_lazy('signin-user'))
 
 class UserDetailView(DetailView):
 
@@ -140,6 +150,7 @@ class UserDetailView(DetailView):
 		member = Member.objects.get(user=self.request.user)
 		context['member'] = member
 		return context
+
 
 class UserEdit(UpdateView):
     model = User
@@ -173,6 +184,7 @@ class UpdatePassword(CreateView):
 
 
 class ListCommittie(ListView):
+
 	template_name='list_committies.html'
 	model = Committie
 

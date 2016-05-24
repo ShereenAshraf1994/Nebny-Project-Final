@@ -770,7 +770,7 @@ class InstallmentList(ListView):
 
 class ChildrenList(ListView):
 
-	template_name='list_children.html'
+	template_name='childrenList.html'
 	model = Children
 
 	def get_context_data(self, **kwargs):
@@ -781,11 +781,12 @@ class ChildrenList(ListView):
 
 class Database(ListView):
 
-	template_name='database.html'
+	template_name='template.html'
 	model = Family
 
 	def get_context_data(self, **kwargs):
 		context = super(Database, self).get_context_data(**kwargs)
+	
 
 
 		return context

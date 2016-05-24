@@ -1,4 +1,5 @@
 {% load staticfiles %}
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -51,15 +52,20 @@
 		</div>
 		<div class="tab-content">
 			<div id="login" class="tab-pane active">
-				<form  class="form-signin"action="{% url 'signin-user' %}" method="post" >{% csrf_token %}
+				<form  class="form-signin"action="" method="post" >{% csrf_token %}
 					<p
-						class="text-muted text-center btn-block btn btn-primary btn-rect">
-						Enter your username and password</p>
-
-					<input type="text" placeholder="Your User Name" class="form-control" name='username1'>
-					<input type="password" placeholder="password" class="form-control"  name='password1'>
+						class="text-muted text-center btn-block btn btn-primary btn-rect">Continue Register</p><br>
+						 	GUC ID: 
+     					   	{{form.guc_id}}<br><br>
+					        Faculty:
+					        {{form.faculty}}<br><br>
+					        Choose Committie
+					        {{form.committie}}<br><br>
+					        Choose Position
+					        {{form.position}}<br><br>
+					
 					<button class="btn text-muted text-center btn-success"
-						type="submit">Sign in</button>
+						type="submit">Next</button>
 					
 				</form>
 			</div>
@@ -75,24 +81,22 @@
 				</form>
 			</div>
 			<div id="signup" class="tab-pane">
-				<form action="{% url 'create-user' %}" class="form-signin" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
+				<form action="" class="form-signin" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
 					<p
 						class="text-muted text-center btn-block btn btn-primary btn-rect">Please
 						Fill Details To Register</p>
-
 						
-					<input type="text" placeholder="First Name" class="form-control" value="{{form.first_name}}">
-					<input type="text" placeholder="Last Name" class="form-control " value="{{form.last_name}}">
-					<input type="text" placeholder="Username" class="form-control" value="{{form.username}}">
-					<input type="email" placeholder="Your E-mail" class="form-control" value="{{form.email}}">
-					<input type="password" placeholder="password" class="form-control" value="{{form.password1}}">
+						
+					<input type="text" placeholder="First Name" class="form-control" value="{{form.first_name}}" />
+					<input type="text" placeholder="Last Name" class="form-control " value="{{form.last_name}}" />
+					<input type="text" placeholder="Username" class="form-control" value="{{form.username}}"/>
+					<input type="email" placeholder="Your E-mail" class="form-control" value="{{form.email}}" />
+					<input type="password" placeholder="password" class="form-control" value="{{form.password1}}" />
 					<input type="password" placeholder="Re type password"
-						class="form-control" value="{{form.password2}}">
+						class="form-control" value="{{form.password2}}" />
 					<button class="btn text-muted text-center btn-success"
-						type="submit">Next</button>
+						type="submit">Register</button>
 				</form>
-
-
 			</div>
 		</div>
 		<div class="text-center">
