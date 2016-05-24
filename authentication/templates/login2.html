@@ -1,4 +1,5 @@
 {% load staticfiles %}
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -53,13 +54,23 @@
 			<div id="login" class="tab-pane active">
 				<form  class="form-signin"action="" method="post" >{% csrf_token %}
 					<p
-						class="text-muted text-center btn-block btn btn-primary btn-rect">
-						Enter your username and password</p>
-
-					<input type="text" placeholder="Your User Name" class="form-control" name='username1'>
-					<input type="password" placeholder="password" class="form-control"  name='password1'>
+						class="text-muted text-center btn-block btn btn-primary btn-rect">Please
+						Fill Details To Register</p>
+						First Name:
+						{{form.first_name}}<br>
+						Last Name:
+						{{form.last_name}}<br>
+						Username: 
+						{{form.username}}<br>
+						Email:
+						{{form.email}}<br>
+						Password:
+						{{form.password1}}<br>
+						Confirm Password:
+						{{form.password2}}<br>
+					
 					<button class="btn text-muted text-center btn-success"
-						type="submit">Sign in</button>
+						type="submit">Next</button>
 					
 				</form>
 			</div>

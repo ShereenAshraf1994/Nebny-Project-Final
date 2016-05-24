@@ -60,7 +60,7 @@
                 <header class="navbar-header">
 
                     <a href="index.html" class="navbar-brand">
-                    <img src="assets/img/neny_logo.png" alt="" />
+                 
                         
                         </a>
                 </header>
@@ -146,7 +146,7 @@
                             <li><a href="#"><i class="icon-gear"></i> Settings </a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="icon-signout"></i> Logout </a>
+                            <li><a href="{% url 'signout-user' %}"><i class="icon-signout"></i> Logout </a>
                             </li>
                         </ul>
 
@@ -166,7 +166,7 @@
             <ul id="menu" class="collapse">
 
 
-                <li><a href="grid.html"><i class="icon-columns"></i> Home </a></li>
+                <li><a href="{% url 'database'  %}"><i class="icon-columns"></i> Home </a></li>
                 <li class="panel "><a href="#" data-parent="#menu"
                     data-toggle="collapse" class="accordion-toggle"
                     data-target="#component-nav"> <i class="icon-tasks"> </i> Core
@@ -209,23 +209,26 @@
 
                 <li class="panel"><a href="#" data-parent="#menu"
                     data-toggle="collapse" class="accordion-toggle"
-                    data-target="#pagesr-nav"> <i class="icon-table"></i> Pages <span
+                    data-target="#pagesr-nav"> <i class="icon-table"></i> DataBase <span
                         class="pull-right"> <i class="icon-angle-left"></i>
                     </span> &nbsp; <span class="label label-info">6</span>&nbsp;
                 </a>
                     <ul class="collapse" id="pagesr-nav">
-                        <li><a href="pages_calendar.html"><i
-                                class="icon-angle-right"></i> Calendar </a></li>
-                        <li><a href="pages_timeline.html"><i
-                                class="icon-angle-right"></i> Timeline </a></li>
-                        <li><a href="pages_social.html"><i
-                                class="icon-angle-right"></i> Social </a></li>
-                        <li><a href="pages_pricing.html"><i
-                                class="icon-angle-right"></i> Pricing </a></li>
-                        <li><a href="pages_offline.html"><i
-                                class="icon-angle-right"></i> Offline </a></li>
-                        <li><a href="pages_uc.html"><i class="icon-angle-right"></i>
-                                Under Construction </a></li>
+                    <li class=""><a href="{% url 'family-list'  %}"><i
+                                class="icon-angle-right"></i> Families </a></li>
+                    <li class=""><a href="{% url 'list-father'  %}"><i
+                                class="icon-angle-right"></i> Fathers </a></li>
+                     <li class=""><a href="{% url 'list-mother'  %}"><i
+                                class="icon-angle-right"></i> Mothers </a></li>
+                     <li class=""><a href="{% url 'list-children'  %}"><i
+                                class="icon-angle-right"></i> Children </a></li>
+                     <li class=""><a href="{% url 'list-home'  %}"><i
+                                class="icon-angle-right"></i> Homes </a></li>
+                     <li class=""><a href="{% url 'list-installment'  %}"><i
+                                class="icon-angle-right"></i> Installments </a></li>
+
+
+                    
                     </ul></li>
 
                 <li><a href="maps.html"><i class="icon-map-marker"></i>
@@ -270,41 +273,10 @@
                  <div class="row">
                     <div class="col-lg-12">
                         <div style="text-align: center;">
-                           
-                            <a class="quick-btn" href="#">
-                                <i class="icon-check icon-2x"></i>
-                                <span> Products</span>
-                                <span class="label label-danger">2</span>
-                            </a>
-
-                            <a class="quick-btn" href="#">
-                                <i class="icon-envelope icon-2x"></i>
-                                <span>Messages</span>
-                                <span class="label label-success">456</span>
-                            </a>
-                            <a class="quick-btn" href="#">
-                                <i class="icon-signal icon-2x"></i>
-                                <span>Profit</span>
-                                <span class="label label-warning">+25</span>
-                            </a>
-                            <a class="quick-btn" href="#">
-                                <i class="icon-external-link icon-2x"></i>
-                                <span>value</span>
-                                <span class="label btn-metis-2">3.14159265</span>
-                            </a>
-                            <a class="quick-btn" href="#">
-                                <i class="icon-lemon icon-2x"></i>
-                                <span>tasks</span>
-                                <span class="label btn-metis-4">107</span>
-                            </a>
-                            <a class="quick-btn" href="#">
-                                <i class="icon-bolt icon-2x"></i>
-                                <span>Tickets</span>
-                                <span class="label label-default">20</span>
-                            </a>
-
-                            
-                            
+                            {% block content %}
+                                <h1>Abstract nebny Information</h1>
+                            {% endblock %}
+             
                         </div>
 
                     </div>
