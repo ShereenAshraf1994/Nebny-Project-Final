@@ -25,7 +25,7 @@ class IndexView(ListView):
 		return context
 
 class CreateUser(FormView):
-	template_name= 'login.html'
+	template_name= 'SignUp1.html'
 	form_class= UserForm
 
 	def post(self,request,*args,**kwargs):
@@ -107,7 +107,7 @@ class CreateMember(CreateView):
 
 class UserSignin(View):
 	model = User
-	template_name='SignUp2.html'
+	template_name='login.html'
 
 	def get(self,request,*args, **kwargs):
 		return render(request,self.template_name)

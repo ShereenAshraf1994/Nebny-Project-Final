@@ -52,7 +52,7 @@
 		</div>
 		<div class="tab-content">
 			<div id="login" class="tab-pane active">
-				<form  class="form-signin"action="{% url 'signin-user' %}" method="post" >{% csrf_token %}
+				<form  class="form-signin"action='{% url "signin-user" %}' method="post" >{% csrf_token %}
 					<p
 						class="text-muted text-center btn-block btn btn-primary btn-rect">
 						Enter your username and password</p>
@@ -75,23 +75,19 @@
 				</form>
 			</div>
 			<div id="signup" class="tab-pane">
-				<form action="{% url 'create-user' %}" class="form-signin" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
+				<form action='{% url "create-member" %}' class="form-signin" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
 					<p
 						class="text-muted text-center btn-block btn btn-primary btn-rect">Please
 						Fill Details To Register</p>
 						
-					<input type="text" placeholder="First Name" class="form-control" value="{{form.first_name}}">
-					<input type="text" placeholder="Last Name" class="form-control " value="{{form.last_name}}">
-					<input type="text" placeholder="Username" class="form-control" value="{{form.username}}">
-					<input type="email" placeholder="Your E-mail" class="form-control" value="{{form.email}}">
-					<input type="password" placeholder="password" class="form-control" value="{{form.password1}}">
-					<input type="password" placeholder="Re type password"
-						class="form-control" value="{{form.password2}}">
+					<input type="text" class="form-control" value="{{form.guc_id}}">
+					{{form.faculty}}
+					<input type="text" placeholder="Committie" class="form-control" value="{{form.committie}}">
+					<input type="email" placeholder="Your E-mail" class="form-control" value="{{form.position}}">
+
 					<button class="btn text-muted text-center btn-success"
 						type="submit">Next</button>
 				</form>
-
-
 			</div>
 		</div>
 		<div class="text-center">

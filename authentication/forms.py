@@ -24,7 +24,7 @@ class PasswordForm(UserCreationForm):
 	fields = {'password1','password2','username'}
 
 	def save(self):
- 		user=User.objects.get(username=form.username)
+ 		user=User.objects.get(username=username)
  		user = user.set_password(
  				
 				password1=self.cleaned_data['password1'],

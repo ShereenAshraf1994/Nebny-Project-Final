@@ -1,0 +1,90 @@
+
+{% load staticfiles %}
+{% block body %}
+      
+
+       {% if customuser.user.is_authenticated %}
+       <div class="row">
+
+
+
+
+
+<nav>
+
+    <div class="nav-wrapper black">
+
+      <ul class="left on-med-and-down">
+       <li><a class="active waves-effect waves-light btn blue" href="{% url 'home' %}">Home</a></li>
+
+      <li><a class="waves-effect waves-light btn blue"href="{% url 'service-list' user.id %}">Services</a></li>
+       <li><a class="waves-effect waves-light btn blue"href="{% url 'product-list' user.id %}">Products</a></li>
+       <li><a class="waves-effect waves-light btn blue"href="{% url 'plan-list'  %}">Marketing plans</a></li>
+       
+       <li><a class="waves-effect waves-light btn-large red"href="{% url 'signout-user' %}">Sign out</a></li>
+     
+          <li><a class="waves-effect waves-light btn black"href="{% url 'user-details' user.id %}">Profile</a></li>
+       <li><a class="waves-effect waves-light btn black"href="{% url 'task-list'  %}">My Tasks</a></li>
+           <li><a class="waves-effect waves-light btn black"href="{% url 'list-posts' %}">Posts</a></li>
+       <li><a class="waves-effect waves-light btn black"href="{% url 'notifications' %}">Notifications</a></li>
+                  <li><a class="waves-effect waves-light btn black" href="{% url 'ranks' %}">Ranks</a></li>
+
+        {% if customuser.is_manager %}
+       <li><a class="waves-effect waves-light btn black"href="{% url 'create-plan' %}">Add plan</a></li>
+         <li><a class="waves-effect waves-light btn black"href="{% url 'create-product' user.id %}">Add product</a></li>
+           <li><a class="waves-effect waves-light btn black"href="{% url 'create-rate' %}">Rate marketers</a></li>
+      
+       </ul></div></nav>
+       <nav>
+        <div class="nav-wrapper black">
+         <ul class="center on-med-and-down">
+       
+
+
+        {% endif %}
+      
+      </ul>
+      </div>
+    </nav>
+
+</div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+        
+
+{% else %}
+
+
+
+
+
+
+<div class="row">
+      <div class="col s12"><p></p></div>
+     <div class="col s12"><p></p></div>
+      <div class="col s12"><p></p></div>
+     <div class="col s12"><p></p></div>
+    
+
+
+         <a class=" col s2 offset-s2 btn-floating btn-large waves-effect waves-light green" href="{% url 'signin-user' %}"><h4>Sign<br>in</h4></a>
+          <a class=" col s3 offset-s1 btn-floating btn-large waves-effect waves-light red" href="{% url 'create-user' %}"><h4>Sign up<br>marketer</h4></a>
+           <a class=" col s3 offset-s1 btn-floating btn-large waves-effect waves-light blue" href="{% url 'create-manager' %}"><h4>Sign up<br>manager</h4></a>
+
+               
+
+     
+       </div>
+
+
+{% endif %}
+     
+
+</body>          
+{% endblock %}
