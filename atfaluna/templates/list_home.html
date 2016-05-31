@@ -1,4 +1,20 @@
+{% extends 'template.html' %}
+{% load staticfiles %}
+
+{% block title %}
+	<h1> Homes</h1>
+{% endblock%}
+
+{% block blocks %}
+
+{% endblock %}
+
+
+{% block information %}
+
 {% for p in object_list %}
 <br>
 <a href="{% url 'home-details'  p.pk %}"> {{p.address}} </a><br>
 {% endfor %}
+
+{% endblock %}

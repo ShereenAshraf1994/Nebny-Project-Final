@@ -1,5 +1,19 @@
-<h1> :بيانات الاب</h1>
 
+{% extends 'template.html' %}
+{% load staticfiles %}
+
+
+{% block title %}
+	
+<h1> :بيانات الاب</h1>
+{% endblock%}
+
+{% block blocks %}
+
+{% endblock %}
+
+
+{% block information %}
 
 
 
@@ -72,3 +86,13 @@ Relif<br>
 
 <a href="{% url 'family-details' family.pk %}"> بيانات اسرة الاب</a><br><br>
 <a href="{% url 'update-father' object.pk %}">تغيير بيانات الاب</a><br><br>
+
+{% endblock %}
+
+
+
+
+
+
+
+

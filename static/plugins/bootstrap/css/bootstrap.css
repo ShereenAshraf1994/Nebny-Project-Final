@@ -4877,6 +4877,19 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .label-default {
   background-color: #999999;
 }
+.label-default-orange {
+  background-color: #FF9900;
+}
+.label-default-green {
+  background-color: #00FF00;
+}
+.label-default-red {
+  background-color: #FF0000;
+}
+.label-default-blue {
+  background-color: #0066FF;
+}
+
 
 .label-default[href]:hover,
 .label-default[href]:focus {

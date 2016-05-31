@@ -249,14 +249,145 @@ class ApproveMember(View):
 
 
 		
-class TemplateView(ListView):
+class TemplatesView(ListView):
 
-	template_name='template.xhtml'
+	template_name='template.html'
 	model = User
 
 	def get_context_data(self, **kwargs):
-		context = super(TemplateView, self).get_context_data(**kwargs)
+		context = super(TemplatesView, self).get_context_data(**kwargs)
 		context['head'] = User
 		context['member'] = User
 		return context
 
+
+##Added by oasama
+class  DatabasingCommitteeView(ListView):
+
+	template_name='databasingCommittee.html'
+	model = User
+
+	def get_context_data(self, **kwargs):
+		context = super(DatabasingCommitteeView, self).get_context_data(**kwargs)
+		context['head'] = User
+		context['member'] = User
+		return context		
+
+
+class  EducationCommiteeView(ListView):
+
+	template_name='educationCommittee.html'
+	model = User
+
+	def get_context_data(self, **kwargs):
+		context = super(EducationCommiteeView, self).get_context_data(**kwargs)
+		context['head'] = User
+		context['member'] = User
+		return context		
+
+class  HealthCareCommitteeView(ListView):
+
+	template_name='healthCareCommittee.html'
+	model = User
+
+	def get_context_data(self, **kwargs):
+		context = super(HealthCareCommitteeView, self).get_context_data(**kwargs)
+		context['head'] = User
+		context['member'] = User
+		return context		
+
+
+
+
+
+
+class  EconomicEmpCommitteeView(ListView):
+
+	template_name='economicEmpCommittee.html'
+	model = User
+
+	def get_context_data(self, **kwargs):
+		context = super(EconomicEmpCommitteeView, self).get_context_data(**kwargs)
+		context['head'] = User
+		context['member'] = User
+		return context		
+
+class  ReliefCommitteeView(ListView):
+
+	template_name='reliefCommittee.html'
+	model = User
+
+	def get_context_data(self, **kwargs):
+		context = super(ReliefCommitteeView, self).get_context_data(**kwargs)
+		context['head'] = User
+		context['member'] = User
+		return context		
+
+class  PublicRelationCommitteeView(ListView):
+
+	template_name='prCommittee.html'
+	model = User
+
+	def get_context_data(self, **kwargs):
+		context = super(PublicRelationCommitteeView, self).get_context_data(**kwargs)
+		context['head'] = User
+		context['member'] = User
+		return context		
+
+class  FundRaisingCommitteeView(ListView):
+
+	template_name='frCommittee.html'
+	model = User
+
+	def get_context_data(self, **kwargs):
+		context = super(FundRaisingCommitteeView, self).get_context_data(**kwargs)
+		context['head'] = User
+		context['member'] = User
+		return context		
+
+class  MediaCommitteeView(ListView):
+
+	template_name='mediaCommittee.html'
+	model = User
+
+	def get_context_data(self, **kwargs):
+		context = super(MediaCommitteeView, self).get_context_data(**kwargs)
+		context['head'] = User
+		context['member'] = User
+		return context		
+
+
+class  HumanResourcesCommitteeView(ListView):
+
+	template_name='hrCommittee.html'
+	model = User
+
+	def get_context_data(self, **kwargs):
+		context = super(HumanResourcesCommitteeView, self).get_context_data(**kwargs)
+		context['head'] = User
+		context['member'] = User
+		return context	
+
+
+class  FundRaisingCommitteeView(ListView):
+
+	template_name='frCommittee.html'
+	model = User
+
+	def get_context_data(self, **kwargs):
+		context = super(FundRaisingCommitteeView, self).get_context_data(**kwargs)
+		context['head'] = User
+		context['member'] = User
+		return context		
+
+
+class  FinancialView(ListView):
+
+	template_name='financialCommittee.html'
+	model = User
+
+	def get_context_data(self, **kwargs):
+		context = super(FinancialView, self).get_context_data(**kwargs)
+		context['head'] = User
+		context['member'] = User
+		return context					

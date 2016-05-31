@@ -166,25 +166,25 @@
             <ul id="menu" class="collapse">
 
 
-                <li><a href="{% url 'database'  %}"><i class="icon-columns"></i> Home </a></li>
+                <li><a href="{% url 'template' %}"><i class="icon-columns"></i> Home </a></li>
                 <li class="panel "><a href="#" data-parent="#menu"
                     data-toggle="collapse" class="accordion-toggle"
                     data-target="#component-nav"> <i class="icon-tasks"> </i> Core
                         Committees <span class="pull-right"> <i
                             class="icon-angle-left"></i>
-                    </span> &nbsp; <span class="label label-default">5</span>&nbsp;
+                    </span> &nbsp; <span class="label label-default-orange">5</span>&nbsp;
                 </a>
                     <ul class="collapse" id="component-nav">
 
-                        <li class=""><a href="button.html"><i
+                        <li class=""><a href="{% url 'databasing-committee' %}"><i
                                 class="icon-angle-right"></i> Data Basing </a></li>
-                        <li class=""><a href="icon.html"><i
+                        <li class=""><a href="{% url 'education-committee' %}"><i
                                 class="icon-angle-right"></i> Education </a></li>
-                        <li class=""><a href="progress.html"><i
+                        <li class=""><a href="{% url 'healthCare-committee' %}"><i
                                 class="icon-angle-right"></i> Health Care </a></li>
-                        <li class=""><a href="notifications.html"><i
+                        <li class=""><a href="{% url 'economicEmp-committee' %}"><i
                                 class="icon-angle-right"></i> Economic Empowerment </a></li>
-                        <li class=""><a href="more_notifications.html"><i
+                        <li class=""><a href="{% url 'relief-committee' %}"><i
                                 class="icon-angle-right"></i> Relief </a></li>
                     </ul></li>
                 <li class="panel "><a href="#" data-parent="#menu"
@@ -192,18 +192,18 @@
                     data-target="#form-nav"> <i class="icon-tasks"></i> Support
                         Committees <span class="pull-right"> <i
                             class="icon-angle-left"></i>
-                    </span> &nbsp; <span class="label label-success">5</span>&nbsp;
+                    </span> &nbsp; <span class="label label-default-green">5</span>&nbsp;
                 </a>
                     <ul class="collapse" id="form-nav">
-                        <li class=""><a href="forms_general.html"><i
+                        <li class=""><a href="{% url 'publicRelation-committee' %}"><i
                                 class="icon-angle-right"></i> Public Relations </a></li>
-                        <li class=""><a href="forms_advance.html"><i
+                        <li class=""><a href="{% url 'fundRaising-committee' %}"><i
                                 class="icon-angle-right"></i> Fund Raising </a></li>
-                        <li class=""><a href="forms_validation.html"><i
+                        <li class=""><a href="{% url 'media-committee' %}"><i
                                 class="icon-angle-right"></i> Media and Marketing </a></li>
-                        <li class=""><a href="forms_fileupload.html"><i
+                        <li class=""><a href="{% url 'humanResources-committee' %}"><i
                                 class="icon-angle-right"></i> Human Resources </a></li>
-                        <li class=""><a href="forms_editors.html"><i
+                        <li class=""><a href="{% url 'financial' %}"><i
                                 class="icon-angle-right"></i> Financial Coordination </a></li>
                     </ul></li>
 
@@ -211,7 +211,7 @@
                     data-toggle="collapse" class="accordion-toggle"
                     data-target="#pagesr-nav"> <i class="icon-table"></i> DataBase <span
                         class="pull-right"> <i class="icon-angle-left"></i>
-                    </span> &nbsp; <span class="label label-info">6</span>&nbsp;
+                    </span> &nbsp; <span class="label label-default-red">6</span>&nbsp;
                 </a>
                     <ul class="collapse" id="pagesr-nav">
                     <li class=""><a href="{% url 'family-list'  %}"><i
@@ -235,12 +235,12 @@
                         Maps </a></li>
 
 
-                <li class="panel active"><a href="#" data-parent="#menu"
+                <li class="panel"><a href="#" data-parent="#menu"
                     data-toggle="collapse" class="accordion-toggle"
                     data-target="#blank-nav"> <i class="icon-check-empty"></i>
                         Blank Pages <span class="pull-right"> <i
                             class="icon-angle-left"></i>
-                    </span> &nbsp; <span class="label label-success">2</span>&nbsp;
+                    </span> &nbsp; <span class="label label-default-blue">2</span>&nbsp;
                 </a>
                     <ul class="in" id="blank-nav">
 
@@ -249,7 +249,7 @@
                         <li><a href="blank2.xhtml"><i class="icon-angle-right"></i>
                                 Blank Page Two </a></li>
                     </ul></li>
-                <li><a href="login.xhtml"><i class="icon-signin"></i> Login
+                <li><a href="{% url 'signout-user' %}"><i class="icon-signin"></i> Login
                         Page </a></li>
 
             </ul>
@@ -265,17 +265,31 @@
             <div class="inner" style="min-height: 700px;">
                 <div class="row">
                     <div class="col-lg-12">
+                        {% block title %}
                         <h1> NEBNY </h1>
+                        {% endblock %}
                     </div>
                 </div>
                   <hr />
-                 <!--BLOCK SECTION -->
+                  {% block blocks %}
+                  <!-- BLOCK SECTION -->
                  <div class="row">
                     <div class="col-lg-12">
                         <div style="text-align: center;">
-                            {% block content %}
-                                <h1>Abstract nebny Information</h1>
-                            {% endblock %}
+                            
+                                <a class="quick-btn" href="#">
+                                <i class="icon-check icon-2x"></i>
+                                <span> Achievements</span>
+                                <span class="label label-default-green">0</span>
+                              </a>
+
+                            <a class="quick-btn" href="#">
+                                <i class="icon-external-link icon-2x"></i>
+                                <span>values</span>
+                                <span class="label label-default-red">14</span>
+                            </a>
+
+                           
              
                         </div>
 
@@ -284,14 +298,23 @@
                 </div>
                   <!--END BLOCK SECTION -->
                 <hr />
-                  
-               
+                 {% endblock %}
 
-                
+                 <!--INFO SECTION -->
+                 <div class="row">
+                    <div class="col-lg-12">
+                        <div style="text-align: center;">
+                            {% block information %}
+                                <h1>Abstract nebny Information</h1>
+                            {% endblock %}
+             
+                        </div>
 
-               
+                    </div>
 
-                
+                </div>
+                  <!--END INFO SECTION -->
+                <hr />
                        
                     </div>
 
