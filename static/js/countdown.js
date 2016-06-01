@@ -1,7 +1,7 @@
 
 
-var startDate = new Date("01/01/2013");
-var endDate = new Date("04/06/2015");
+var startDate = new Date("01/01/2016");
+var endDate = new Date("04/06/2017");
 
 var dif = endDate.getTime() - startDate.getTime();
 var difToSecond = dif / 1000;

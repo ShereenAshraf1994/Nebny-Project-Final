@@ -391,3 +391,16 @@ class  FinancialView(ListView):
 		context['head'] = User
 		context['member'] = User
 		return context					
+
+		
+
+class  UnderConstruction(ListView):
+
+	template_name='pages_uc.html'
+	model = User
+
+	def get_context_data(self, **kwargs):
+		context = super(UnderConstruction, self).get_context_data(**kwargs)
+		context['head'] = User
+		context['member'] = User
+		return context		

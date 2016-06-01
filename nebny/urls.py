@@ -84,6 +84,7 @@ urlpatterns = [
     url(r'^humanResourcesCommittee/', HumanResourcesCommitteeView.as_view(), name='humanResources-committee'),
     url(r'^fundRaising/', FundRaisingCommitteeView.as_view(), name='fundRaising-committee'),
     url(r'^financial/', FinancialView.as_view(), name='financial'),
+    url(r'^pagesuc/', UnderConstruction.as_view(), name='pages-uc'),
 
 
 
