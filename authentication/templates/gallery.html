@@ -1,0 +1,100 @@
+﻿ {% extends 'template.html' %}
+{% load staticfiles %}
+
+{% block everything %}
+ <!-- GLOBAL STYLES -->
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/MoneAdmin.css' %}" />
+    <link rel="stylesheet" href="{% static 'plugins/Font-Awesome/css/font-awesome.css' %}" />
+    <!--END GLOBAL STYLES -->
+
+    <!-- PAGE LEVEL STYLES-->
+    <link href="{% static 'plugins/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css' %}" rel="stylesheet" />
+      <style>
+        .panel-body a img {
+            margin-bottom:5px !important;
+
+        }
+          .panel-body a{
+              color:transparent!important;
+          }
+    </style>
+
+
+
+        <!--PAGE CONTENT -->
+        <div id="content">
+
+            <div class="inner" style="min-height:700px;">
+                <div class="row">
+                    <div class="col-lg-12">
+
+
+                        <h2> Gallery </h2>
+
+
+
+                    </div>
+                </div>
+
+                <hr />
+                <div class="row">
+                    <div class="col-lg-12">
+ 
+	
+                         <div class="panel panel-success">
+                            <div class="panel-heading">
+                               
+                            </div>
+
+                            <div class="panel-body">
+                              
+			<p style="text-align:center">
+		<a  id="example1" href="{% static 'img/logo.png' %}"  title="Sample Nebny Image"><img src="{% static 'img/logo.png' %}" alt="" /></a>
+        <a  id="example1" href="{% static 'img/logo.png' %}"  title="Sample Nebny Image"><img src="{% static 'img/logo.png' %}" alt="" /></a>
+         <a  id="example1" href="{% static 'img/logo.png' %}"  title="Sample Nebny Image"><img src="{% static 'img/logo.png' %}" alt="" /></a>
+          <a  id="example1" href="{% static 'img/logo.png' %}"  title="Sample Nebny Image"><img src="{% static 'img/logo.png' %}" alt="" /></a>
+           <a  id="example1" href="{% static 'img/logo.png' %}"  title="Sample Nebny Image"><img src="{% static 'img/logo.png' %}" alt="" /></a> 
+           <a  id="example1" href="{% static 'img/logo.png' %}"  title="Sample Nebny Image"><img src="{% static 'img/logo.png' %}" alt="" /></a>
+        
+
+
+		
+
+	</p>
+		</div>
+		</div>
+	
+		</div>
+
+
+                    </div>
+
+
+
+            </div>
+
+
+
+
+        </div>
+        <!--END PAGE CONTENT -->
+
+
+    </div>
+
+  <!-- GLOBAL SCRIPTS -->
+    <script src="{% static 'plugins/jquery-2.0.3.min.js' %}"></script>
+     <script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/modernizr-2.6.2-respond-1.1.0.min.js' %}"></script>
+    <!-- END GLOBAL SCRIPTS -->
+
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="{% static 'plugins/jquery.fancybox-1.3.4/jquery-1.4.3.min.js' %}"></script> <!--important for gallery-->
+     <script src="{% static 'plugins/jquery.fancybox-1.3.4/fancybox/jquery.mousewheel-3.0.4.pack.js' %}"></script> 
+    <script src="{% static 'plugins/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js' %}"></script>
+     <script src="{% static 'js/image_gallery.js' %}"></script>
+
+     {% endblock %}

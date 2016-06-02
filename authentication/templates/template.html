@@ -60,9 +60,9 @@
                 <header class="navbar-header">
 
                     <a href="index.html" class="navbar-brand">
-                 
+                       <img src="{% static 'img/newLogo.png' %}" alt="" />
                         
-                        </a>
+                    </a>
                 </header>
                 <!-- END LOGO SECTION -->
                 <ul class="nav navbar-top-links navbar-right">
@@ -235,7 +235,8 @@
                         Maps </a></li>
 
                  <li><a href="{% url 'calender' %}"><i
-                                class="icon-bar-chart" ></i> Calendar </a></li>           
+                                class="icon-bar-chart" ></i> Calendar </a></li>      
+                  <li><a href="{% url 'gallery' %}"><i class="icon-film"></i> Image Gallery </a></li>                    
 
 
                 <li class="panel"><a href="#" data-parent="#menu"
@@ -288,9 +289,22 @@
 
                             <a class="quick-btn" href="#">
                                 <i class="icon-external-link icon-2x"></i>
-                                <span>values</span>
+                                <span>Values</span>
                                 <span class="label label-default-red">14</span>
                             </a>
+
+                            <a class="quick-btn" href="#">
+                                <i class="icon-signal icon-2x"></i>
+                                <span>Products</span>
+                                <span class="label label-default-blue">0</span>
+                            </a>
+
+                            <a class="quick-btn" href="#">
+                                <i class="icon-bolt icon-2x"></i>
+                                <span>Goals</span>
+                                <span class="label label-default">20</span>
+                            </a>
+
 
                            
              

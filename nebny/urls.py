@@ -86,6 +86,7 @@ urlpatterns = [
     url(r'^financial/', FinancialView.as_view(), name='financial'),
     url(r'^pagesuc/', UnderConstruction.as_view(), name='pages-uc'),
     url(r'^calender/', CalenderView.as_view(), name='calender'),
+    url(r'^gallery/', GalleryView.as_view(), name='gallery'),
 
 
 
