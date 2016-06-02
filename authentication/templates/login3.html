@@ -55,17 +55,19 @@
 				<form  class="form-signin"action="" method="post" >{% csrf_token %}
 					<p
 						class="text-muted text-center btn-block btn btn-primary btn-rect">Continue Register</p><br>
-						 	GUC ID: 
+						 	<label>GUC ID:</label> 
      					   	{{form.guc_id}}<br><br>
-					        Faculty:
+					        <label>Faculty:</label>
 					        {{form.faculty}}<br><br>
-					        Choose Committie
+					        <label>Choose Committie</label>
 					        {{form.committie}}<br><br>
-					        Choose Position
+					        <label>Choose Position</label>
 					        {{form.position}}<br><br>
-					
-					<button class="btn text-muted text-center btn-success"
-						type="submit">Next</button>
+
+						 <div class="form-actions" style="text-align:center">
+                                            <button class="btn btn-primary btn-success"
+						                             type="submit">Next</button>
+                                        </div>
 					
 				</form>
 			</div>

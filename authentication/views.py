@@ -404,3 +404,14 @@ class  UnderConstruction(ListView):
 		context['head'] = User
 		context['member'] = User
 		return context		
+
+class  CalenderView(ListView):
+
+	template_name='pages_calendar.html'
+	model = User
+
+	def get_context_data(self, **kwargs):
+		context = super(CalenderView, self).get_context_data(**kwargs)
+		context['head'] = User
+		context['member'] = User
+		return context				

@@ -234,6 +234,9 @@
                 <li><a href="{% url 'pages-uc' %}"><i class="icon-map-marker"></i>
                         Maps </a></li>
 
+                 <li><a href="{% url 'calender' %}"><i
+                                class="icon-bar-chart" ></i> Calendar </a></li>           
+
 
                 <li class="panel"><a href="#" data-parent="#menu"
                     data-toggle="collapse" class="accordion-toggle"
@@ -258,7 +261,7 @@
       
         <!--END MENU SECTION -->
 
-
+        {% block everything %}
         <!--PAGE CONTENT -->
         <div id="content">
              
@@ -343,5 +346,6 @@
 	<script src='{% static "plugins/bootstrap/js/bootstrap.min.js" %}'></script>
 	<script src='{% static "plugins/modernizr-2.6.2-respond-1.1.0.min.js" %}'></script>
 	<!-- END GLOBAL SCRIPTS -->
+    {% endblock %}
 </h:body>
 </html>
