@@ -1,6 +1,10 @@
 
 {% load staticfiles %}
 
+{% if not user.is_authenticated %}
+    <META http-equiv="refresh" content="0;URL= {% url 'signin-user' %}">
+{% endif %}
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -59,7 +63,7 @@
                 <!-- LOGO SECTION -->
                 <header class="navbar-header">
 
-                    <a href="index.html" class="navbar-brand">
+                    <a href="#" class="navbar-brand">
                        <img src="{% static 'img/newLogo.png' %}" alt="" />
                         
                     </a>
