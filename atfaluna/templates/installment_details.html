@@ -1,4 +1,19 @@
-<h1>بيانات القسط </h1>
+
+{% extends 'template.html' %}
+{% load staticfiles %}
+
+
+{% block title %}
+	<h1>بيانات القسط </h1>
+{% endblock%}
+
+{% block blocks %}
+
+{% endblock %}
+
+
+{% block information %}
+	
 <h3>الشئ المشترى<br>
 {{object.name}}<br>
 
@@ -13,3 +28,6 @@
  <a href="{% url 'family-details' family.pk %}"> بيانات اسرة القسط</a><br><br>
 
 <a href="{% url 'update-installment' object.pk %}">تغيير بيانات القسط</a><br><br>
+
+{% endblock %}
+

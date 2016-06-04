@@ -48,24 +48,32 @@
 	<!-- PAGE CONTENT -->
 	<div class="container">
 		<div class="text-center">
-			<img src='{% static "img/logo.png" %}' id="logoimg" alt=" Logo" />
+			<img src='{% static "img/newLogoLarge.png" %}' alt=" Logo" />
 		</div>
 		<div class="tab-content">
 			<div id="login" class="tab-pane active">
 				<form  class="form-signin"action="" method="post" >{% csrf_token %}
 					<p
 						class="text-muted text-center btn-block btn btn-primary btn-rect">Continue Register</p><br>
-						 	GUC ID: 
+						 	<label>GUC ID:</label> 
      					   	{{form.guc_id}}<br><br>
-					        Faculty:
+					        <label>Faculty:</label>
 					        {{form.faculty}}<br><br>
+<<<<<<< HEAD
 					        Committie
 					        {{form.committie}}<br><br>
 					         Position
+=======
+					        <label>Choose Committie</label>
+					        {{form.committie}}<br><br>
+					        <label>Choose Position</label>
+>>>>>>> 060338aa7f39ad2a854b0f58e4f8afbc617ad495
 					        {{form.position}}<br><br>
-					
-					<button class="btn text-muted text-center btn-success"
-						type="submit">Next</button>
+
+						 <div class="form-actions" style="text-align:center">
+                                            <button class="btn btn-primary btn-success"
+						                             type="submit">Next</button>
+                                        </div>
 					
 				</form>
 			</div>

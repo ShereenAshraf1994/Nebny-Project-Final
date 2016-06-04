@@ -1,6 +1,10 @@
 
 {% load staticfiles %}
 
+{% if not user.is_authenticated %}
+    <META http-equiv="refresh" content="0;URL= {% url 'signin-user' %}">
+{% endif %}
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -59,10 +63,10 @@
                 <!-- LOGO SECTION -->
                 <header class="navbar-header">
 
-                    <a href="index.html" class="navbar-brand">
-                 
+                    <a href="#" class="navbar-brand">
+                       <img src="{% static 'img/newLogo.png' %}" alt="" />
                         
-                        </a>
+                    </a>
                 </header>
                 <!-- END LOGO SECTION -->
                 <ul class="nav navbar-top-links navbar-right">
@@ -166,25 +170,25 @@
             <ul id="menu" class="collapse">
 
 
-                <li><a href="{% url 'database'  %}"><i class="icon-columns"></i> Home </a></li>
+                <li><a href="{% url 'template' %}"><i class="icon-columns"></i> Home </a></li>
                 <li class="panel "><a href="#" data-parent="#menu"
                     data-toggle="collapse" class="accordion-toggle"
                     data-target="#component-nav"> <i class="icon-tasks"> </i> Core
                         Committees <span class="pull-right"> <i
                             class="icon-angle-left"></i>
-                    </span> &nbsp; <span class="label label-default">5</span>&nbsp;
+                    </span> &nbsp; <span class="label label-default-orange">5</span>&nbsp;
                 </a>
                     <ul class="collapse" id="component-nav">
 
-                        <li class=""><a href="button.html"><i
+                        <li class=""><a href="{% url 'databasing-committee' %}"><i
                                 class="icon-angle-right"></i> Data Basing </a></li>
-                        <li class=""><a href="icon.html"><i
+                        <li class=""><a href="{% url 'education-committee' %}"><i
                                 class="icon-angle-right"></i> Education </a></li>
-                        <li class=""><a href="progress.html"><i
+                        <li class=""><a href="{% url 'healthCare-committee' %}"><i
                                 class="icon-angle-right"></i> Health Care </a></li>
-                        <li class=""><a href="notifications.html"><i
+                        <li class=""><a href="{% url 'economicEmp-committee' %}"><i
                                 class="icon-angle-right"></i> Economic Empowerment </a></li>
-                        <li class=""><a href="more_notifications.html"><i
+                        <li class=""><a href="{% url 'relief-committee' %}"><i
                                 class="icon-angle-right"></i> Relief </a></li>
                     </ul></li>
                 <li class="panel "><a href="#" data-parent="#menu"
@@ -192,18 +196,18 @@
                     data-target="#form-nav"> <i class="icon-tasks"></i> Support
                         Committees <span class="pull-right"> <i
                             class="icon-angle-left"></i>
-                    </span> &nbsp; <span class="label label-success">5</span>&nbsp;
+                    </span> &nbsp; <span class="label label-default-green">5</span>&nbsp;
                 </a>
                     <ul class="collapse" id="form-nav">
-                        <li class=""><a href="forms_general.html"><i
+                        <li class=""><a href="{% url 'publicRelation-committee' %}"><i
                                 class="icon-angle-right"></i> Public Relations </a></li>
-                        <li class=""><a href="forms_advance.html"><i
+                        <li class=""><a href="{% url 'fundRaising-committee' %}"><i
                                 class="icon-angle-right"></i> Fund Raising </a></li>
-                        <li class=""><a href="forms_validation.html"><i
+                        <li class=""><a href="{% url 'media-committee' %}"><i
                                 class="icon-angle-right"></i> Media and Marketing </a></li>
-                        <li class=""><a href="forms_fileupload.html"><i
+                        <li class=""><a href="{% url 'humanResources-committee' %}"><i
                                 class="icon-angle-right"></i> Human Resources </a></li>
-                        <li class=""><a href="forms_editors.html"><i
+                        <li class=""><a href="{% url 'financial' %}"><i
                                 class="icon-angle-right"></i> Financial Coordination </a></li>
                     </ul></li>
 
@@ -211,7 +215,7 @@
                     data-toggle="collapse" class="accordion-toggle"
                     data-target="#pagesr-nav"> <i class="icon-table"></i> DataBase <span
                         class="pull-right"> <i class="icon-angle-left"></i>
-                    </span> &nbsp; <span class="label label-info">6</span>&nbsp;
+                    </span> &nbsp; <span class="label label-default-red">6</span>&nbsp;
                 </a>
                     <ul class="collapse" id="pagesr-nav">
                     <li class=""><a href="{% url 'family-list'  %}"><i
@@ -231,16 +235,20 @@
                     
                     </ul></li>
 
-                <li><a href="maps.html"><i class="icon-map-marker"></i>
+                <li><a href="{% url 'pages-uc' %}"><i class="icon-map-marker"></i>
                         Maps </a></li>
 
+                 <li><a href="{% url 'calender' %}"><i
+                                class="icon-bar-chart" ></i> Calendar </a></li>      
+                  <li><a href="{% url 'gallery' %}"><i class="icon-film"></i> Image Gallery </a></li>                    
 
-                <li class="panel active"><a href="#" data-parent="#menu"
+
+                <li class="panel"><a href="#" data-parent="#menu"
                     data-toggle="collapse" class="accordion-toggle"
                     data-target="#blank-nav"> <i class="icon-check-empty"></i>
                         Blank Pages <span class="pull-right"> <i
                             class="icon-angle-left"></i>
-                    </span> &nbsp; <span class="label label-success">2</span>&nbsp;
+                    </span> &nbsp; <span class="label label-default-blue">2</span>&nbsp;
                 </a>
                     <ul class="in" id="blank-nav">
 
@@ -249,7 +257,7 @@
                         <li><a href="blank2.xhtml"><i class="icon-angle-right"></i>
                                 Blank Page Two </a></li>
                     </ul></li>
-                <li><a href="login.xhtml"><i class="icon-signin"></i> Login
+                <li><a href="{% url 'signout-user' %}"><i class="icon-signin"></i> Login
                         Page </a></li>
 
             </ul>
@@ -258,24 +266,51 @@
       
         <!--END MENU SECTION -->
 
-
+        {% block everything %}
         <!--PAGE CONTENT -->
         <div id="content">
              
             <div class="inner" style="min-height: 700px;">
                 <div class="row">
                     <div class="col-lg-12">
+                        {% block title %}
                         <h1> NEBNY </h1>
+                        {% endblock %}
                     </div>
                 </div>
                   <hr />
-                 <!--BLOCK SECTION -->
+                  {% block blocks %}
+                  <!-- BLOCK SECTION -->
                  <div class="row">
                     <div class="col-lg-12">
                         <div style="text-align: center;">
-                            {% block content %}
-                                <h1>Abstract nebny Information</h1>
-                            {% endblock %}
+                            
+                                <a class="quick-btn" href="#">
+                                <i class="icon-check icon-2x"></i>
+                                <span> Achievements</span>
+                                <span class="label label-default-green">0</span>
+                              </a>
+
+                            <a class="quick-btn" href="#">
+                                <i class="icon-external-link icon-2x"></i>
+                                <span>Values</span>
+                                <span class="label label-default-red">14</span>
+                            </a>
+
+                            <a class="quick-btn" href="#">
+                                <i class="icon-signal icon-2x"></i>
+                                <span>Products</span>
+                                <span class="label label-default-blue">0</span>
+                            </a>
+
+                            <a class="quick-btn" href="#">
+                                <i class="icon-bolt icon-2x"></i>
+                                <span>Goals</span>
+                                <span class="label label-default">20</span>
+                            </a>
+
+
+                           
              
                         </div>
 
@@ -284,14 +319,23 @@
                 </div>
                   <!--END BLOCK SECTION -->
                 <hr />
-                  
-               
+                 {% endblock %}
 
-                
+                 <!--INFO SECTION -->
+                 <div class="row">
+                    <div class="col-lg-12">
+                        <div style="text-align: center;">
+                            {% block information %}
+                                <h1>Abstract nebny Information</h1>
+                            {% endblock %}
+             
+                        </div>
 
-               
+                    </div>
 
-                
+                </div>
+                  <!--END INFO SECTION -->
+                <hr />
                        
                     </div>
 
@@ -320,5 +364,6 @@
 	<script src='{% static "plugins/bootstrap/js/bootstrap.min.js" %}'></script>
 	<script src='{% static "plugins/modernizr-2.6.2-respond-1.1.0.min.js" %}'></script>
 	<!-- END GLOBAL SCRIPTS -->
+    {% endblock %}
 </h:body>
 </html>

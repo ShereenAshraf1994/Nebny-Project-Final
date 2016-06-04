@@ -1,6 +1,14 @@
-	
+{% extends 'template.html' %}
+{% load staticfiles %}
 
-	<h1> بيانات الاسرة</h1>
+	{% block title%}
+		<h1> بيانات الاسرة</h1>
+	{% endblock %}
+	{% block blocks %}
+	{% endblock %}
+
+	{% block information %}
+	
 	<h3>الام<br>
 	 {{object.mother}}<br><a href="{% url 'mother-details' object.mother.pk  %}">بيانات الام </a><br>
 	الاب<br>
@@ -128,6 +136,7 @@
 
 مسح بيانات الاسرة<
 
+{% endblock %}
 	
 
 

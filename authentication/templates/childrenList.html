@@ -1,5 +1,6 @@
 {% extends 'template.html' %}
 {% load staticfiles %}
+
 {% block content %}
 Child ID:&nbsp&nbsp&nbsp&nbsp Child Name:<br>
 {% for p in object_list %}
@@ -8,3 +9,20 @@ Child ID:&nbsp&nbsp&nbsp&nbsp Child Name:<br>
 <a href="{% url 'children-details'  p.pk %}"> {{p.pk}} &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp   {{p.name}} </a><br>
 {% endfor %}
 {% endblock %}
+
+
+
+{% block title %}
+	<h1> Children List</h1>
+{% endblock%}
+
+{% block blocks %}
+
+{% endblock %}
+
+
+{% block information %}
+
+
+{% endblock %}
+

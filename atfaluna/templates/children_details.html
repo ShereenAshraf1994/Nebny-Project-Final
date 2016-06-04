@@ -1,7 +1,14 @@
+{% extends 'template.html' %}
+{% load staticfiles %}
 
+{% block title %}
+	<h2>الاسم <br>
+{% endblock %}
 
-  			<h2>الاسم <br>
+		{% block information %}
+  			
 		{{object.name}}<br>
+		}
 	تاريخ الميلاد<br>
 		{{object.birthdate}}<br>
 		السنة الدراسية <br>
@@ -56,3 +63,6 @@
 {% if member == family_member %} 
 	<a href="{% url 'update-child' object.pk %}">تغيير بيانات الطفل</a><br><br>
 {% endif %}
+
+
+{% endblock %}
