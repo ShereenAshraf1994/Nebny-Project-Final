@@ -55,19 +55,18 @@
 				<form  class="form-signin"action="" method="post" >{% csrf_token %}
 					<p
 						class="text-muted text-center btn-block btn btn-primary btn-rect">Please
-						Fill Details To Register</p>
-						First Name:
+						Fill Details To Register</p><br>
+						First Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 						{{form.first_name}}<br>
-						Last Name:
+						Last Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 						{{form.last_name}}<br>
-						Username: 
+						Username: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 						{{form.username}}<br>
-						Email:
+						Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 						{{form.email}}<br>
-						Password:
+						Password:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 						{{form.password1}}<br>
-						Confirm Password:
-						{{form.password2}}<br>
+						Retype Password:{{form.password2}}<br><br>
 					
 					<button class="btn text-muted text-center btn-success"
 						type="submit">Next</button>
