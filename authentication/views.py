@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from authentication.models import *
 
 class IndexView(ListView):
-	template_name = 'index.html'
+	template_name = 'template.html'
 	model = User
 	def get_context_data(self, **kwargs):
 		context = super(IndexView, self).get_context_data(**kwargs)
