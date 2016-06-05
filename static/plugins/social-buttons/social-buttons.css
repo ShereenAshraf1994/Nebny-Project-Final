@@ -19,8 +19,8 @@
 	white-space:nowrap;
 	overflow:hidden;
 	text-overflow:ellipsis;
-	height:34px;
-	width:34px;
+	height:24px;
+	width:24px;
 	padding-left:0;
 	padding-right:0
 	}
@@ -29,11 +29,16 @@
 	left:0;
 	top:0;
 	bottom:0;
-	width:32px;
-	line-height:34px;
+	width:22px;
+	line-height:24px;
 	font-size:1.6em;
 	text-align:center;
 	border-right:1px solid rgba(0,0,0,0.2)
+}
+.social-div{
+	position: absolute;
+	left: 700px;
+	margin-top: 5px;
 }
 .btn-social-icon.btn-lg{padding-left:61px}.btn-social-icon.btn-lg :first-child{line-height:45px;width:45px;font-size:1.8em}
 .btn-social-icon.btn-sm{padding-left:38px}.btn-social-icon.btn-sm :first-child{line-height:28px;width:28px;font-size:1.4em}
