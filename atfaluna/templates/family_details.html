@@ -9,7 +9,7 @@
 	{% endblock %}
 
 	{% block information %}
-
+<h2><font color="red">بيانات الاهل</font><br>
 
 	<table style="width:100%" >
 
@@ -159,38 +159,7 @@
 <br><br>
 
 
-  <table style="width:50%" align="right" >
-
-  <tr>
-  
-	 <td><h3><font color='blue'>عدد الاقساط المتبقية</td>
-	<td><h3><font color='blue'>قيمة القسط الواحد</td>
-	
-	 <td><h3><font color='blue'>الاقساط : الشئ المشترى</td>
-	 </tr>
-	 <tr>
- {% for p in object.installment.all %}
-
-	<td><h3> {{p.no_installments_left}}</td>
-	  {% endfor %}
-	 {% for p in object.installment.all %}
-		
-	 		<td><h3>{{p.installment_value}}</td> 
-	
-		{% endfor %}
-	<td>{% for p in object.installment.all %}
-		
-	 		<h3>{{p.name}}
-	
-		{% endfor %}
-		{% if object.member.user == user %}
- 	<a href="{% url 'add-installment' object.pk %}"><h3>اضافة قسط </a><br>
- 	{% endif %}
- 	{% if object.member.is_UB == True %}
- 	<a href="{% url 'add-installment' object.pk %}"><h3>اضافة قسط </a><br>
- 	{% endif %}</td>
-	</tr>
-	</table>  <br><br><br><br><br><br><br>
+ 
 		
   <table style="width:30%" align="right">
 
@@ -209,6 +178,29 @@
  	{% endif %}
  	{% if object.member.is_UB == True %}
  	<a href="{% url 'add-children' object.pk %}">اضافة طفل </a><br>
+ 	{% endif %}
+	</td>
+	</tr>
+	</table>
+
+
+	<table style="width:30%" >
+
+  <tr>
+ 
+ <td><h3><font color='blue'>الاقساط</td>
+</tr>
+<tr>
+ <td>
+  	{% for p in object.installment.all %}
+ <h3>{{p.name}}<br><a href="{% url 'installment-details' object.pk %}">بيانات القسط </a><br><br>
+ 
+	{% endfor %}
+	{% if object.member.user == user %}
+ 	<a href="{% url 'add-installment' object.pk %}">اضافة قسط </a><br>
+ 	{% endif %}
+ 	{% if object.member.is_UB == True %}
+ 	<a href="{% url 'add-installment' object.pk %}">اضافة قسط </a><br>
  	{% endif %}
 	</td>
 	</tr>
