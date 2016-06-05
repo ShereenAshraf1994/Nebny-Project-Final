@@ -15,7 +15,9 @@ background-repeat: repeat-x;
 
 /*********************************************************/
 
-
+table, th, td {
+    border: 1px solid black;
+}
 
 #wrap {
   margin: 0 auto;

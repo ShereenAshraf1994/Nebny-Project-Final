@@ -2,139 +2,238 @@
 {% load staticfiles %}
 
 	{% block title%}
-		<h1> بيانات الاسرة</h1>
+  
+		<h1><font color="red"> <p  color='red' align="right">بيانات الاسرة رقم :{{object.id}}</p></font></h1>
 	{% endblock %}
 	{% block blocks %}
 	{% endblock %}
 
 	{% block information %}
+
+
+	<table style="width:100%" >
+
+  <tr>
+ 
+
+<td><h3><font color='blue'>المنزل</td>
+
+   <td><h3><font color='blue'>الام</td>
+   <td><h3><font color='blue'>الاب</td>
+  </tr>
+
+  <tr>
+  
+   <td><h3>{{object.home}}<br><a href="{% url 'home-details' object.home.pk  %}">بيانات المنزل </a></td>
+    <td><h3>{{object.mother}}<br><a href="{% url 'mother-details' object.mother.pk  %}">بيانات الام </a></td>
+    <td><h3>{{object.father}}<br><a href="{% url 'father-details'  object.father.pk %}">بيانات الاب </a></td>
 	
-	<h3>الام<br>
-	 {{object.mother}}<br><a href="{% url 'mother-details' object.mother.pk  %}">بيانات الام </a><br>
-	الاب<br>
-	 {{object.father}}<br><a href="{% url 'father-details'  object.father.pk %}">بيانات الاب </a><br>
-	المنزل<br>
-	 {{object.home}}<br><a href="{% url 'home-details' object.home.pk  %}">بيانات المنزل </a><br>
-	الاطفال<br>
-	{% if object.member.user == user %}
- 	<a href="{% url 'add-children' object.pk %}">اضافة طفل </a><br>
+	 
+
+  </tr>
+  </table><br>
+
+
+
+	<table style="width:100%" color=''>
+
+  <tr>
+  
+	
+
+	<td><h3><font color='blue'>اسم من ادخل البحث</td>
+
+     <td><h3><font color='blue'>ملاحظات اخرى</td>
+     <td><h3> <font color='blue'>اذكرالمواعيد المناسبة للدروس</td>
+     <td><h3><font color='blue'>اذكر الاسم</td>
+      <td><h3><font color='blue'> هل يوجد شخص امى</td>
+        <td><h3><font color='blue'>هل يوجد اشخاص اخرين يعيشون معهم فى المنزل؟</td>
+     <td><h3><font color='blue'>عدد افراد الاسرة</td> 
+     <td><h3><font color='blue'>نسبة الفقر</td>
+     </font>
+
+  </tr>
+  <tr>
+  
+
+	
+	
+	<td><h3>{{object.member}}</td>
+
+	<td><h3>{{object.other_notes}}</td>
+	<td><h3>{{object.ommi_free_time}}</td>
+<td><h3>{{object.ommi}}</td>
+	{% if object.is_member_ommi == True %}
+	<td><h3>نعم</td>
+	{% else %}
+	<td><h3>لا</td>
+	{% endif %}
+
+
+	
+	{% if object.other_members == True %}
+		<td><h3>نعم</td>
+	{% else %}
+	<td><h3>لا</td>
+	{% endif %}
+	<td><h3>{{object.family_members}}</td>
+<td><h3>{{object.poverty_level}}</td>
+  </tr>
+</table><br><br>
+
+
+	
+<table style="width:100%" >
+  <tr>
+
+
+		<td><h3><font color='blue'>عدد الافراد المسجلين على البطاقة</td>
+
+	<td><h3><font color='blue'>هل لديهم بطاقة تموينية؟</td>
+	<td><h3><font color='blue'>اى مصادر دخل اخرى</td>   	
+ 	 <td><h3><font color='blue'>معاشات تامينات</td> 
+     <td><h3><font color='blue'>معاشات شئون اجتماعية</td>
+
+
+  </tr>
+  <tr>
+  <td><h3>{{object.no_people_in_tamweneya_card}}</td>
+{% if object.is_tamweneya_card == True %}<br>
+	<td><h3>نعم</td>
+	{% else %}
+	<td><h3>لا</td>
+	{% endif %}
+  <td><h3>{{object.masdar_da5l}}</td>
+  {% if object.is_ma3ashat_ta2meneya == True %}<br>
+<td><h3>نعم</td>
+	{% else %}
+	<td><h3>لا</td>
+	{% endif %}
+  {% if object.is_ma3ashat_sho2on_egtma3eya == True %}
+		<td><h3>نعم</td>
+	{% else %}
+	<td><h3>لا</td>
+	{% endif %}
+	</tr>
+  </table><br><br><br>
+
+    <table style="width:100%" >
+
+  <tr>
+  
+
+
+	<td><h3><font color='blue'>مجموع المصاريف الدراسية</td>
+
+	<td><h3><font color='blue'>اجمالى مصروفات العلاج </td>
+
+		<td><h3> <font color='blue'>تكلفة الطعام </td>
+
+<td><h3><font color='blue'>تكلفة	مواصلات</td>
+
+	<td><h3><font color='blue'>تكلفة كهرباء</td>
+
+	<td><h3><font color='blue'>تكلفة مياه </td>
+
+	<td><h3><font color='blue'>تكلفة الموبايلات </td>
+
+	<td><h3><font color='blue'>تكلفة إيجار </td>
+
+	<td><h3><font color='blue'>انابيب الغاز</td>
+
+	<td><h3><font color='blue'>تكلفة التدخين</td>
+	</tr>
+<tr>
+	<td><h3>{{object.education_expenses}}</td><
+<td><h3>{{object.total_health_care_expenses}}</td>
+<td><h3>{{object.food_expenses}}</td>
+<td><h3>{{object.transportation_expenses}}</td>
+<td><h3>{{object.electricity_expenses}}</td>
+<td><h3>{{object.water_expenses}}</td>
+<td><h3>{{object.mobile_expenses}}</td>
+<td><h3>{{object.rent_expenses}}</td>
+<td><h3>{{object.gas_expenses}}</td>
+	<td><h3>{{object.smoking_expenses}}</td>
+
+	</table>
+<br><br>
+
+
+  <table style="width:50%" align="right" >
+
+  <tr>
+  
+	 <td><h3><font color='blue'>عدد الاقساط المتبقية</td>
+	<td><h3><font color='blue'>قيمة القسط الواحد</td>
+	
+	 <td><h3><font color='blue'>الاقساط : الشئ المشترى</td>
+	 </tr>
+	 <tr>
+ {% for p in object.installment.all %}
+
+	<td><h3> {{p.no_installments_left}}</td>
+	  {% endfor %}
+	 {% for p in object.installment.all %}
+		
+	 		<td><h3>{{p.installment_value}}</td> 
+	
+		{% endfor %}
+	<td>{% for p in object.installment.all %}
+		
+	 		<h3>{{p.name}}
+	
+		{% endfor %}
+		{% if object.member.user == user %}
+ 	<a href="{% url 'add-installment' object.pk %}"><h3>اضافة قسط </a><br>
  	{% endif %}
  	{% if object.member.is_UB == True %}
- 	<a href="{% url 'add-children' object.pk %}">اضافة طفل </a><br>
- 	{% endif %}
-	{% for p in object.children.all %}
- {{p.name}}<br><a href="{% url 'children-details' object.pk %}">بيانات الطفل </a><br>
+ 	<a href="{% url 'add-installment' object.pk %}"><h3>اضافة قسط </a><br>
+ 	{% endif %}</td>
+	</tr>
+	</table>  <br><br><br><br><br><br><br>
+		
+  <table style="width:30%" align="right">
+
+  <tr>
+ 
+ <td><h3><font color='blue'>الاطفال</td>
+</tr>
+<tr>
+ <td>
+  	{% for p in object.children.all %}
+ <h3>{{p.name}}<br><a href="{% url 'children-details' object.pk %}">بيانات الطفل </a><br><br>
  
 	{% endfor %}
-	
-	نسبة الفقر<br>
-	{{object.poverty_level}}<br>
-	عدد افراد الاسرة<br>
-	{{object.family_members}}<br>
-	هل يوجد اشخاص اخرين يعيشون معهم فى المنزل؟<br>
-	{% if object.other_members == True %}<br>
-		نعم<br>
-	{% else %}
-	لا<br>
-	{% endif %}
-	ملاحظات اخرى<br>
-	{{object.other_notes}}<br>
-	هل يوجد شخص امى<br>
-	{% if object.is_member_ommi == True %}
-	نعم<br>
-	{% else %}
-	لا<br>
-	{% endif %}
-	اذكر الاسم<br>
-	{{object.ommi}}<br>
-	 اذكرالمواعيد المناسبة للدروس<br>
-	{{object.ommi_free_time}}<br>
-	معاشات شئون اجتماعية <br>
-	{% if object.is_ma3ashat_sho2on_egtma3eya == True %}
-		نعم
-	{% else %}
-	لا
-	{% endif %}<br>
-	 معاشات تامينات<br>
-	{% if object.is_ma3ashat_ta2meneya == True %}<br>
-		نعم<br>
-	{% else %}
-	لا<br>
-	{% endif %}
-	اى مصادر دخل اخرى <br>
-	{{object.masdar_da5l}}<br>
-	المصروفات:  تكلفة الطعام<br> 
-	{{object.food_expenses}}<br>
-	مواصلات<br>
-	{{object.transportation_expenses}}<Br>
-	مجموع المصاريف الدراسية<br>
-	{{object.education_expenses}}<br>
-	اجمالى مصروفات العلاج <br>
-	{{object.total_health_care_expenses}}<br>
-	كهرباء<br>
-	{{object.electricity_expenses}}<br>
-	 مياه <br>
-	{{object.water_expenses}}<br>
-	تكلفة الموبايلات <br>
-	{{object.mobile_expenses}}<br>
-	إيجار <br>
-	{{object.rent_expenses}}<br>
-	انابيب الغاز<br>
-	{{object.gas_expenses}}<br>
-	التدخين<br>
-	{{object.smoking_expenses}}<br>
-	هل لديهم بطاقة تموينية؟<br>
-	{% if object.is_tamweneya_card == True %}<br>
-	نعم<br>
-	{% else %}
-	لا<br>
-	{% endif %}
-	عدد الافراد المسجلين على البطاقة<br>
-	{{object.no_people_in_tamweneya_card}}<br>
-	الاقساط<br>
 	{% if object.member.user == user %}
- 	<a href="{% url 'add-installment' object.pk %}">اضافة قسط </a><br>
+ 	<a href="{% url 'add-children' object.pk %}">اضافة طفل </a><br>
  	{% endif %}
  	{% if object.member.is_UB == True %}
- 	<a href="{% url 'add-installment' object.pk %}">اضافة قسط </a><br>
+ 	<a href="{% url 'add-children' object.pk %}">اضافة طفل </a><br>
  	{% endif %}
-	{% for p in object.installment.all %}
-		{% if member.committie.name == 'Databasing' %}
-	 		<a href="{% url 'installment-details'  p.pk %}">{{p.name}} </a><br>
-		{% else %}
-		{{p.name}}<br>
-		{% if object.member.is_UB == True %}
-			<a href="{% url 'installment-details'  p.pk %}">{{p.name}} </a><br>
-		{% endif %}
-		{% endif %}
-	{% endfor %}
+	</td>
+	</tr>
+	</table><br><br>
 
-	اسم من ادخل البحث<br>
-	{{object.member}}<br>
-
+  
 {% if member == family_member %}
 
-<a href="{% url 'update-family' object.pk %}">تغيير بيانات الاسرة</a><br><br>
+<a href="{% url 'update-family' object.pk %}"><h3 align="center">تغيير بيانات الاسرة</a><br><br>
 
 {% endif %}
 
 {% if object.member.is_UB == True %}
-<a href="{% url 'update-family' object.pk %}">تغيير بيانات الاسرة</a><br><br>
+<a href="{% url 'update-family' object.pk %}"><h3 align="center">تغيير بيانات الاسرة</a><br><br>
 
 {% endif %}
+	
+	
+
+	
 
 
-مسح بيانات الاب
 
 
-مسح بيانات الام
 
-
-مسح بيانات الطفل
-
-مسح بيانات القسط
-
-مسح بيانات الاسرة<
 
 {% endblock %}
 	
