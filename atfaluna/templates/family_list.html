@@ -4,8 +4,8 @@
 
 
 {% block title %}
-	<h1></h1>
-{% endblock%}
+	<h1><font color="red"> <p  color='red' align="center">Family List</p></font>
+	{% endblock %}
 
 {% block blocks %}
 
@@ -13,9 +13,37 @@
 
 
 {% block information %}
-	{% for p in object_list %}
- <a href="{% url 'family-details' p.pk %}">{{p.father.name}} </h2></a><br>
+
+<table style="width:100%" >
+
+  <tr>
  
+
+<td><h3><font color='blue'>Family</td>
+
+   <td><h3><font color='blue'>ID</td>
+  
+  </tr>
+
+  <tr>
+ <td> {% for p in object_list %}
+ <a href="{% url 'family-details' p.pk %}"><h3>{{p.father.name}} </h2></a><br>
+ 
+
+{% endfor %}</td>
+<td>{% for p in object_list %}
+ <a href="{% url 'family-details' p.pk %}"><h3>{{p.id}} </h2></a><br>
+ 
+
+{% endfor %}</td>
+
+  
+	 
+
+  </tr>
+  </table><br>
+	{% for p in object_list %}
+
 
 {% endfor %}
 {% endblock %}
