@@ -17,8 +17,12 @@ from django.conf.urls import url
 from django.contrib import admin
 from authentication.views import *
 from atfaluna.views import *
+from django.conf.urls import include
 
-urlpatterns = [
+from django.conf.urls import patterns, url
+from django_bootstrap_calendar.views import CalendarJsonListView, CalendarView
+
+urlpatterns = [ 
 
     url(r'^admin/', admin.site.urls),
     url(r'^$', IndexView.as_view(), name='home'),
@@ -86,7 +90,11 @@ urlpatterns = [
     url(r'^financial/', FinancialView.as_view(), name='financial'),
     url(r'^pagesuc/', UnderConstruction.as_view(), name='pages-uc'),
     url(r'^calender/', CalenderView.as_view(), name='calender'),
-    url(r'^gallery/', GalleryView.as_view(), name='gallery'),
+    url(r'^gallery/', GalleryView.as_view(), name='gallery'),    
+    url(r'^calendar/', include('django_bootstrap_calendar.urls')),
+    #Added for calendar test
+    url(r'^json/$', CalendarJsonListView.as_view(), name='calendar_json'),
+    url(r'^$',CalendarView.as_view(), name='calendar'),
 
 
 

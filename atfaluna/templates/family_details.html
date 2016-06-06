@@ -193,7 +193,7 @@
 <tr>
  <td>
   	{% for p in object.installment.all %}
- <h3>{{p.name}}<br><a href="{% url 'installment-details' object.pk %}">بيانات القسط </a><br><br>
+ <h3>{{p.name}}<br><a href="{% url 'installment-details' p.pk %}">بيانات القسط </a><br><br>
  
 	{% endfor %}
 	{% if object.member.user == user %}
