@@ -42,7 +42,9 @@
 
   </tr>
   </table><br>
-	
+    {% if member.committie.name == 'Databasing' %}
+	<a href="{% url 'create-family'  %}"><h2>Add Family </h2></a><br>
+	{% endif %}
 
 
 

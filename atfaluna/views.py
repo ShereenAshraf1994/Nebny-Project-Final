@@ -540,8 +540,8 @@ class FamilyList(ListView):
 
 	def get_context_data(self, **kwargs):
 		context = super(FamilyList, self).get_context_data(**kwargs)
-
-
+		member = Member.objects.get(user=self.request.user)
+		context['member']=member
 		return context
 
 class FamilyDetails(DetailView):
