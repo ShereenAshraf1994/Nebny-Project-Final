@@ -1,72 +1,170 @@
-<h2> :بيانات الام
+ {% extends 'template.html' %}
+{% load staticfiles %}
 
+	{% block title%}
+  
+		
+	{% endblock %}
+	{% block blocks %}
+	{% endblock %}
 
+	{% block information %}
+<br><Br><Br>
 
+<h1><font color="red"> <p  color='red' align="centre">بيانات الام</p></font></h1>
 <form action="" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
-<h3>الاسم<br>
-{{form.name}}<br>
-تاريخ الميلاد<br>
-{{form.birthdate}}<br>
-السن<br>
-{{form.age}}<br>
-المستوى التعليمى<br>
-{{form.education_level}}<br>
-هل هو عائل؟<br>
-{{form.is_3a2el}}<br>
-العمل<br>
-{{form.job}}<br>
- دائم ام متقطع <br>
-{{form.job_status}}<br>
-الحالة الاجتماعية <br>
-{{form.marital_status}}<br>
-الرقم القومى<br>
-{{form.national_id}}<br>
-الموبايل<br>
-{{form.mobile}}<br>
-المرتب<br>
-{{form.salary}}<br>
-حالة المرتب<br>
-{{form.work_status}}<br>
-
-مريض؟<br>
-{{form.is_sick}}<br>
-المرض<br>
-{{form.disease}}<br>
-العلاج<br>
-{{form.medecine}}<br>
-تكلفة العلاج  <br>
-{{form.health_care_expenses}}<br>
- جهة الانفاق على العلاج<br>
-{{form.health_care_paid_by}}<br>
-هل يريد ان يتم الكشف عليه؟<br>
-{{form.want_kashf}}<br>
-اطراف صناعيية<br>
-{{form.is_atraf_sena3eya}}<br>
-غسيل كلوي<br>
-{{form.is_3aseel_kalawy}}<br>
-عملية جراحية<br>
-{{form.is_surgery_needed}}<br>
-ذوي الإحتياجات الخاصة؟<br>
-{{form.is_special_needs}}<br>
-هل لدى الحالة الرغبة في إنشاء مشروع؟<br>
-{{form.want_project}}<br>
-فكرة المشروع <br>
-{{form.project_idea}}<br>
- تكلفة التشغيل<br>
-{{form.project_cost}}<br>
-الربح الشهرى<br>
-{{form.project_profit}}<br>
-ملاحظات اخرى<br>
-
-{{form.project_notes}}<br>
-Forward Case to :<br>
-HealthCare?<br>
-{{form.health_care_needed}}<br>
-Education?<br>
-{{form.education_needed}}<br>
-Economic Development?<br>
-{{form.economic_development_needed}}<br>
 
 
-        <input type="submit" value="Submit">
-    </form>
+	<table style="width:100%" color=''class="table table-striped table-bordered table-hover">
+
+  <tr>
+  <td><h3><font color='blue'>الحالة الاجتماعية</td>
+     <td><h3><font color='blue'>دائم ام متقطع</td>
+     <td><h3> <font color='blue'>العمل</td>
+     <td><h3><font color='blue'>هل هو عائل؟</td>
+      <td><h3><font color='blue'> المستوى التعليمى</td>
+        <td><h3><font color='blue'>السن</td>
+     <td><h3><font color='blue'>تاريخ الميلاد</td> 
+     <td><h3><font color='blue'>الاسم</td>
+     </font>
+
+  </tr>
+  <tr>
+ <td> {{form.marital_status}}</td>
+	<td>{{form.job_status}}</td>
+	<td>{{form.job}}</td>
+<td>{{form.is_3a2el}}</td>
+
+
+<td>{{form.education_level}}</td>
+	<td>{{form.age}}</td>
+		
+	<td>{{form.birthdate}}</td>
+<td>{{form.name}}</td>
+  </tr>
+</table><br>
+
+
+	
+<table style="width:100%" class="table table-striped table-bordered table-hover">
+  <tr>
+
+
+	<td><h3><font color='blue'>تكلفة العلاج</td>
+	<td><h3><font color='blue'>العلاج</td>   	
+ 	 <td><h3><font color='blue'>المرض</td> 
+     <td><h3><font color='blue'>مريض؟</td>
+
+
+		<td><h3><font color='blue'>حالة المرتب</td>
+
+	<td><h3><font color='blue'>المرتب</td>
+	<td><h3><font color='blue'>الموبايل</td>   	
+ 	 <td><h3><font color='blue'>الرقم القومى</td> 
+  
+
+
+  </tr>
+  <tr>
+    
+ <td>{{form.health_care_expenses}}</td>
+
+  <td>{{form.medecine}}</td>
+
+<td>{{form.disease}}</td> <br>
+
+ <td>{{form.is_sick}}</td>
+
+  <td>{{form.work_status}}</td>
+ <td>{{form.salary}}</td>
+
+  <td>{{form.mobile}}</td>
+
+<td>{{form.national_id}}</td> <br>
+
+
+	</tr>
+  </table><br><br>
+
+    <table style="width:100%" class="table table-striped table-bordered table-hover">
+
+  <tr>
+  
+
+
+
+<td><h3><font color='blue'>ذوي الإحتياجات الخاصة؟</td>
+	<td><h3><font color='blue'>عملية جراحية</td>
+
+	<td><h3><font color='blue'>غسيل كلوي </td>
+
+	<td><h3><font color='blue'>اطراف صناعية</td>
+
+	<td><h3><font color='blue'>هل يريد ان يتم الكشف عليه؟</td>
+
+	<td><h3><font color='blue'> جهة الانفاق على العلاج</td>
+	</tr>
+<tr>
+
+<td>{{form.is_special_needs}}</td>
+<td>{{form.is_surgery_needed}}</td>
+<td>{{form.is_3aseel_kalawy}}</td>
+<td>{{form.is_atraf_sena3eya}}</td>
+<td>{{form.want_kashf}}</td>
+<td>{{form.health_care_paid_by}}</td>
+	</tr>
+</table><br>
+	 <table style="width:100%" class="table table-striped table-bordered table-hover">
+<tr>
+		<td><h3><font color='blue'>ملاحظات اخرى</td>
+
+	<td><h3><font color='blue'>الربح الشهرى</td>
+
+		<td><h3> <font color='blue'> تكلفة التشغيل</td>
+
+<td><h3><font color='blue'>فكرة المشروع</td>
+
+	<td><h3><font color='blue'>هل لدى الحالة الرغبة في إنشاء مشروع؟</td>
+	</tr>
+<tr>
+		<td>{{form.project_notes}}</td>
+<td>{{form.project_profit}}</td>
+<td>{{form.project_cost}}</td>
+<td>{{form.project_idea}}</td>
+<td>{{form.want_project}}</td>
+</tr>
+
+	</table>
+<br><br>
+<h3><font color='blue'>Forward Case To:</font><br><br>
+
+HealthCare:
+{{form.health_care_needed}}<br><br>
+Education:
+{{form.education_needed}}<br><br>
+Economic Development:
+{{form.economic_development_needed}}<br><br>
+
+	
+
+
+
+
+
+ <h3><input type="submit" value="Next">
+
+
+
+{% endblock %}
+	
+
+
+
+  
+    <script src='{% static "plugins/dataTables/jquery.dataTables.js" %}'></script>
+    <script src='{% static "plugins/dataTables/dataTables.bootstrap.js" %}'></script>
+    <script>
+         $(document).ready(function () {
+             $('#dataTables-example').dataTable();
+         });
+    </script>

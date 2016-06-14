@@ -1,0 +1,39 @@
+<form action="" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
+بيانات المنزل
+		<h3>العنوان<br><h3>
+		{{form.address}}<br>
+		  نوع البناء<br><h3>
+		{{form.building_status}}<br>
+		الحوائط <br><h3>
+		{{form.wall_status}}<br>
+		الاسقف<br><h3>
+		{{form.roof_status}}<br>
+		الارضيات <br><h3>
+		{{form.floor_status}}<br>
+		هل يوجد مطبخ؟<br><h3>
+		{{form.kitchen}}<br>
+		الحمام<br><h3>
+		{{form.toilet}}<br>
+		الصرف الصحى<br><h3>
+		{{form.sarf_sehy}}<br>
+		شبكة مياه<br><h3>
+		{{form.water_shabaka}}<br>
+		الاجهزة الكهربائية الناقصة<br><h3>
+		{{form.electrical_equipments_needed}}<br>
+		الاجهزة الكهربائية الرديئة<br><h3>
+		{{form.electrical_equipments_radee2a}}<Br>
+		الاثاث الناقص<br><h3>
+		{{form.furniture_needed}}<br>
+		الاثاث الردىء<br><h3>
+		{{form.furniture_radee2}}<br>
+		عدد الغرف بدون المطبخ و الحمام<br><h3>
+		{{form.living_rooms_no}}<br>
+		Forward Case to :<br>
+
+
+			Relif<br>
+		{{form.relif_needed}}<br>
+
+
+		        <input type="submit" value="Submit">
+    </form>

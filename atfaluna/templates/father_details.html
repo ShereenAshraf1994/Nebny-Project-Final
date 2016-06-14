@@ -1,100 +1,292 @@
-
-{% extends 'template.html' %}
+ {% extends 'template.html' %}
 {% load staticfiles %}
 
+	{% block title%}
+  
+		
+	{% endblock %}
+	{% block blocks %}
+	{% endblock %}
 
-{% block title %}
+	{% block information %}
+<br><Br><Br>
+
+<h1><font color="red"> <p  color='red' align="centre">بيانات الاب</p></font></h1>
+
+
+
+	<table style="width:100%" color=''class="table table-striped table-bordered table-hover">
+
+  <tr>
+  <td><h3><font color='blue'>الحالة الاجتماعية</td>
+     <td><h3><font color='blue'>دائم ام متقطع</td>
+     <td><h3> <font color='blue'>العمل</td>
+     <td><h3><font color='blue'>هل هو عائل؟</td>
+      <td><h3><font color='blue'> المستوى التعليمى</td>
+        <td><h3><font color='blue'>السن</td>
+     <td><h3><font color='blue'>تاريخ الميلاد</td> 
+     <td><h3><font color='blue'>الاسم</td>
+     </font>
+
+  </tr>
+  <tr>
+  {% if object.marital_status == '1' %}
+<td>متزوج</td>
+{% endif %}
+ {% if object.marital_status == '2' %}
+<td>أعزب</td>
+{% endif %}
+ {% if object.marital_status == '3' %}
+<td>مطلق</td>
+{% endif %}
+ {% if object.marital_status == '4' %}
+<td>أرمل</td>
+{% endif %}
+
+ {% if object.job_status == '1' %}
+<td>دائم</td>
+{% endif %}
+ {% if object.job_status == '2' %}
+<td>متقطع</td>
+{% endif %}
 	
-<h1> :بيانات الاب</h1>
-{% endblock%}
-
-{% block blocks %}
-
-{% endblock %}
-
-
-{% block information %}
+	<td>{{object.job}}</td>
+	{% if object.is_3a2el == True %}
+	<td><h3>نعم</td>
+	{% else %}
+	<td><h3>لا</td>
+	{% endif %}
 
 
+{% if object.education_level == '1' %}
+<td>غير متعلم</td>
+{% endif %}
+{% if object.education_level == '2' %}
+<td>ابتدائي</td>
+{% endif %}
+{% if object.education_level == '3' %}
+<td>اعدادي</td>
+{% endif %}
+{% if object.education_level == '4' %}
+<td>ثانوية</td>
+{% endif %}
+{% if object.education_level == '5' %}
+<td>بكالريوس</td>
+{% endif %}
+{% if object.education_level == '6' %}
+<td>دبلوم زراعى</td>
+{% endif %}
+{% if object.education_level == '7' %}
+<td>دبلوم تجاري</td>
+{% endif %}
+{% if object.education_level == '8' %}
+<td>دبلوم صناعي</td>
+{% endif %}
+{% if object.education_level == '9' %}
+<td>اخري</td>
+{% endif %}
+
+	<td>{{object.age}}</td>
+		
+	<td>{{object.birthdate}}</td>
+<td>{{object.name}}</td>
+  </tr>
+</table><br>
+
+
+	
+<table style="width:100%" class="table table-striped table-bordered table-hover">
+  <tr>
+
+
+	<td><h3><font color='blue'>تكلفة العلاج</td>
+	<td><h3><font color='blue'>العلاج</td>   	
+ 	 <td><h3><font color='blue'>المرض</td> 
+     <td><h3><font color='blue'>مريض؟</td>
+
+
+		<td><h3><font color='blue'>حالة المرتب</td>
+
+	<td><h3><font color='blue'>المرتب</td>
+	<td><h3><font color='blue'>الموبايل</td>   	
+ 	 <td><h3><font color='blue'>الرقم القومى</td> 
+  
+
+
+  </tr>
+  <tr>
+    
+ <td>{{object.health_care_expenses}}</td>
+
+  <td>{{object.medecine}}</td>
+
+<td>{{object.disease}}</td> <br>
+{% if object.is_sick == True %}
+	<td><h3>نعم</td>
+	{% else %}
+	<td><h3>لا</td>
+	{% endif %}
 
 
 
-<h3>الاسم<br>
-{{object.name}}<br>
-تاريخ الميلاد<br>
-{{object.birthdate}}<br>
-السن<br>
-{{object.age}}<br>
-المستوى التعليمى<br>
-{{object.education_level}}<br>
-هل هو عائل؟<br>
-{{object.is_3a2el}}<br>
-العمل<br>
-{{object.job}}<br>
- دائم ام متقطع <br>
-{{object.job_status}}<br>
-الحالة الاجتماعية <br>
-{{object.marital_status}}<br>
-الرقم القومى<br>
-{{object.national_id}}<br>
-الموبايل<br>
-{{object.mobile}}<br>
-المرتب<br>
-{{object.salary}}<br>
-حالة المرتب<br>
-{{object.work_status}}<br>
+  {% if object.work_status == '1' %}
+<td>ثابت</td>
+{% endif %}
 
-مريض؟<br>
-{{object.is_sick}}<br>
-المرض<br>
-{{object.disease}}<br>
-العلاج<br>
-{{object.medecine}}<br>
-تكلفة العلاج  <br>
-{{object.health_care_expenses}}<br>
- جهة الانفاق على العلاج<br>
-{{object.health_care_paid_by}}<br>
-هل يريد ان يتم الكشف عليه؟<br>
-{{object.want_kashf}}<br>
-اطراف صناعيية<br>
-{{object.is_atraf_sena3eya}}<br>
-غسيل كلوي<br>
-{{object.is_3aseel_kalawy}}<br>
-عملية جراحية<br>
-{{object.is_surgery_needed}}<br>
-ذوي الإحتياجات الخاصة؟<br>
-{{object.is_special_needs}}<br>
-هل لدى الحالة الرغبة في إنشاء مشروع؟<br>
-{{object.want_project}}<br>
-فكرة المشروع <br>
-{{object.project_idea}}<br>
- تكلفة التشغيل<br>
-{{object.project_cost}}<br>
-الربح الشهرى<br>
-{{object.project_profit}}<br>
-ملاحظات اخرى<br>
+  {% if object.work_status == '2' %}
+<td>يومية</td>
+{% endif %}
 
-{{object.project_notes}}<br>
-Forward Case to :<br>
-HealthCare<br>
-{{object.health_care_needed}}<br>
-Education<br>
-{{object.education_needed}}<br>
-Economic Development<br>
-{{object.economic_development_needed}}<br>
-Relif<br>
-{{object.relif_needed}}<br>
+  {% if object.work_status == '3' %}
+<td>اسبوعي</td>
+{% endif %}
+
+  {% if object.work_status == '4' %}
+<td>لا يعمل</td>
+{% endif %}
+
+ <td>{{object.salary}}</td>
+
+  <td>{{object.mobile}}</td>
+
+<td>{{object.national_id}}</td> <br>
 
 
+	</tr>
+  </table><br><br>
+
+    <table style="width:100%" class="table table-striped table-bordered table-hover">
+
+  <tr>
+  
+
+
+
+<td><h3><font color='blue'>ذوي الإحتياجات الخاصة؟</td>
+	<td><h3><font color='blue'>عملية جراحية</td>
+
+	<td><h3><font color='blue'>غسيل كلوي </td>
+
+	<td><h3><font color='blue'>اطراف صناعية</td>
+
+	<td><h3><font color='blue'>هل يريد ان يتم الكشف عليه؟</td>
+
+	<td><h3><font color='blue'> جهة الانفاق على العلاج</td>
+	</tr>
+<tr>
+
+
+{% if object.is_special_needs == True %}
+	<td><h3>نعم</td>
+	{% else %}
+	<td><h3>لا</td>
+	{% endif %}
+{% if object.is_surgery_needed == True %}
+	<td><h3>نعم</td>
+	{% else %}
+	<td><h3>لا</td>
+	{% endif %}
+{% if object.is_3aseel_kalawy == True %}
+	<td><h3>نعم</td>
+	{% else %}
+	<td><h3>لا</td>
+	{% endif %}
+
+{% if object.is_atraf_sena3eya == True %}
+	<td><h3>نعم</td>
+	{% else %}
+	<td><h3>لا</td>
+	{% endif %}
+
+{% if object.want_kashf == True %}
+	<td><h3>نعم</td>
+	{% else %}
+	<td><h3>لا</td>
+	{% endif %}
+
+	{% if object.health_care_paid_by == '1' %}
+	<td>علي نفقته</td>
+	{% endif %}
+	{% if object.health_care_paid_by == '2' %}
+	<td>التأمين الصحي</td>
+	{% endif %}
+	{% if object.health_care_paid_by == '3' %}
+	<td>متبرع</td>
+	{% endif %}
+	{% if object.health_care_paid_by == '4'%}
+	<td>نفقة الدول</td>
+	{% endif %}
+
+
+	</tr>
+</table><br>
+	 <table style="width:100%" class="table table-striped table-bordered table-hover">
+<tr>
+		<td><h3><font color='blue'>ملاحظات اخرى</td>
+
+	<td><h3><font color='blue'>الربح الشهرى</td>
+
+		<td><h3> <font color='blue'> تكلفة التشغيل</td>
+
+<td><h3><font color='blue'>فكرة المشروع</td>
+
+	<td><h3><font color='blue'>هل لدى الحالة الرغبة في إنشاء مشروع؟</td>
+	</tr>
+<tr>
+		<td>{{object.project_notes}}</td>
+<td>{{object.project_profit}}</td>
+<td>{{object.project_cost}}</td>
+<td>{{object.project_idea}}</td>
+
+{% if object.want_project == True %}
+	<td><h3>نعم</td>
+	{% else %}
+	<td><h3>لا</td>
+	{% endif %}
+</tr>
+
+	</table>
+<br><br>
+<h3><font color='blue'> Case Sent To:</font>
+
+
+{% if object.health_care_needed == True %}<br><br>
+HealthCare
+{% endif %}
+Education
+
+{% if object.education_needed == True %}<br><br>
+Education
+{% endif %}
+
+{% if object.economic_development_needed == True %}<br><br>
+Economic Development
+{% endif %}
+
+<h3>
 <a href="{% url 'family-details' family.pk %}"> بيانات اسرة الاب</a><br><br>
 <a href="{% url 'update-father' object.pk %}">تغيير بيانات الاب</a><br><br>
 
+	
+
+
+
+
+
+
+
+
+
 {% endblock %}
+	
 
 
 
-
-
-
-
-
+  
+    <script src='{% static "plugins/dataTables/jquery.dataTables.js" %}'></script>
+    <script src='{% static "plugins/dataTables/dataTables.bootstrap.js" %}'></script>
+    <script>
+         $(document).ready(function () {
+             $('#dataTables-example').dataTable();
+         });
+    </script>

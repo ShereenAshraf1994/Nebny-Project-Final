@@ -1,58 +1,167 @@
+ {% extends 'template.html' %}
+{% load staticfiles %}
+
+	{% block title%}
+  
+		
+	{% endblock %}
+	{% block blocks %}
+	{% endblock %}
+
+	{% block information %}
+<br><Br><Br>
+
+<h1><font color="red"> <p  color='red' align="centre">بيانات الاسرة </p></font></h1>
 <form action="" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
 
-<h2> :بيانات العائلة</h2>
+
+	<table style="width:100%" color=''class="table table-striped table-bordered table-hover">
+
+  <tr>
+  
+	
+
+	
+
+     <td><h3><font color='blue'>ملاحظات اخرى</td>
+     <td><h3> <font color='blue'>اذكرالمواعيد المناسبة للدروس</td>
+     <td><h3><font color='blue'>اذكر الاسم</td>
+      <td><h3><font color='blue'> هل يوجد شخص امى</td>
+        <td><h3><font color='blue'>هل يوجد اشخاص اخرين يعيشون معهم فى المنزل؟</td>
+     <td><h3><font color='blue'>عدد افراد الاسرة</td> 
+     <td><h3><font color='blue'>نسبة الفقر</td>
+     </font>
+
+  </tr>
+  <tr>
+
+	<td>{{form.other_notes}}</td>
+	<td>{{form.ommi_free_time}}</td>
+<td>{{form.ommi}}</td>
 
 
-	<h3>نسبة الفقر<br>
-	{{form.poverty_level}}<br>
-	عدد افراد الاسرة<br>
-	{{form.family_members}}<br>
-	هل يوجد اشخاص اخرين يعيشون معهم فى المنزل؟<br>
-	{{form.other_members}}<br>
-	ملاحظات اخرى<br>
-	{{form.other_notes}}<br>
-	هل يوجد شخص امى<br>
-	{{form.is_member_ommi}}<br>
-	اذكر الاسم<br>
-	{{form.ommi}}<br>
-	 اذكرالمواعيد المناسبة للدروس<br>
-	{{form.ommi_free_time}}<br>
-	معاشات شئون اجتماعية <br>
-	{{form.is_ma3ashat_sho2on_egtma3eya}}<br>
-	 معاشات تامينات<br>
-	{{form.is_ma3ashat_ta2meneya}}<br>
-	اى مصادر دخل اخرى <br>
-	{{form.masdar_da5l}}<br>
-	المصروفات:  تكلفة الطعام<br> 
-	{{form.food_expenses}}<br>
-	مواصلات<br>
-	{{form.transportation_expenses}}<Br>
-	مجموع المصاريف الدراسية<br>
-	{{form.education_expenses}}<br>
-	اجمالى مصروفات العلاج <br>
-	{{form.total_health_care_expenses}}<br>
-	كهرباء<br>
-	{{form.electricity_expenses}}<br>
-	 مياه <br>
-	{{form.water_expenses}}<br>
-	تكلفة الموبايلات <br>
-	{{form.mobile_expenses}}<br>
-	إيجار <br>
-	{{form.rent_expenses}}<br>
-	انابيب الغاز<br>
-	{{form.gas_expenses}}<br>
-	التدخين<br>
-	{{form.smoking_expenses}}<br>
-	هل لديهم بطاقة تموينية؟<br>
-	{{form.is_tamweneya_card}}<br>
-	عدد الافراد المسجلين على البطاقة<br>
-	{{form.no_people_in_tamweneya_card}}<br>
+<td>{{form.is_member_ommi}}</td>
+	
+ <td>{{form.other_members}}</td>
+		
+	<td>{{form.family_members}}</td>
+<td>{{form.poverty_level}}</td>
+  </tr>
+</table><br>
+
+
+	
+<table style="width:100%" class="table table-striped table-bordered table-hover">
+  <tr>
+
+
+		<td><h3><font color='blue'>عدد الافراد المسجلين على البطاقة</td>
+
+	<td><h3><font color='blue'>هل لديهم بطاقة تموينية؟</td>
+	<td><h3><font color='blue'>اى مصادر دخل اخرى</td>   	
+ 	 <td><h3><font color='blue'>معاشات تامينات</td> 
+     <td><h3><font color='blue'>معاشات شئون اجتماعية</td>
+
+
+  </tr>
+  <tr>
+  <td><h3>{{form.no_people_in_tamweneya_card}}</td>
+ <td> {{form.is_tamweneya_card}}</td>
+
+  <td> {{form.masdar_da5l}}</td>
+ 
+ 
+    
+
+<td>  {{form.is_ma3ashat_ta2meneya}}</td> <br>
+
+ <td> {{form.is_ma3ashat_sho2on_egtma3eya}}
+		</td>
+	</tr>
+  </table><br><br>
+
+    <table style="width:100%" class="table table-striped table-bordered table-hover">
+
+  <tr>
+  
+
+
+
+
+	<td><h3><font color='blue'>تكلفة مياه </td>
+
+	<td><h3><font color='blue'>تكلفة الموبايلات </td>
+
+	<td><h3><font color='blue'>تكلفة إيجار </td>
+
+	<td><h3><font color='blue'>انابيب الغاز</td>
+
+	<td><h3><font color='blue'>تكلفة التدخين</td>
+	</tr>
+<tr>
+
+<td>{{form.water_expenses}}</td>
+<td>{{form.mobile_expenses}}</td>
+<td>{{form.rent_expenses}}</td>
+<td>{{form.gas_expenses}}</td>
+	<td>{{form.smoking_expenses}}</td>
+	</tr>
+</table><br>
+	 <table style="width:100%" class="table table-striped table-bordered table-hover">
+<tr>
+		<td><h3><font color='blue'>مجموع المصاريف الدراسية</td>
+
+	<td><h3><font color='blue'>اجمالى مصروفات العلاج </td>
+
+		<td><h3> <font color='blue'>تكلفة الطعام </td>
+
+<td><h3><font color='blue'>تكلفة	مواصلات</td>
+
+	<td><h3><font color='blue'>تكلفة كهرباء</td>
+	</tr>
+<tr>
+		<td>{{form.education_expenses}}</td>
+<td>{{form.total_health_care_expenses}}</td>
+<td>{{form.food_expenses}}</td>
+<td>{{form.transportation_expenses}}</td>
+<td>{{form.electricity_expenses}}</td>
+</tr>
+
+	</table>
+<br><br>
+
+
+ 
+		
+
+
+
+
+
+  
 
 
 
 	
+	
+
+	
+
+
+ <h3><input type="submit" value="Next">
 
 
 
-        <input type="submit" value="Next">
-    </>
+{% endblock %}
+	
+
+
+
+  
+    <script src='{% static "plugins/dataTables/jquery.dataTables.js" %}'></script>
+    <script src='{% static "plugins/dataTables/dataTables.bootstrap.js" %}'></script>
+    <script>
+         $(document).ready(function () {
+             $('#dataTables-example').dataTable();
+         });
+    </script>

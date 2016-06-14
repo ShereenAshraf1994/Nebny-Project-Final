@@ -221,7 +221,7 @@ class CreateHome(CreateView):
 	model = Home
 	template_name= 'create_home.html'
 	fields=['building_status','wall_status','roof_status','floor_status','kitchen','toilet','sarf_sehy','water_shabaka','electrical_equipments_needed',
-		'electrical_equipments_radee2a','furniture_needed','furniture_radee2','living_rooms_no','address']
+		'electrical_equipments_radee2a','furniture_needed','furniture_radee2','living_rooms_no','address','relif_needed']
 
 	def post(self,request,*args,**kwargs):
 			form=self.get_form()
@@ -561,7 +561,7 @@ class FamilyDetails(DetailView):
 
 class ChildrenDetails(DetailView):
 
-	template_name='children_details.html'
+	template_name='x.html'
 	model = Children
 
 	def get_context_data(self, **kwargs):
@@ -664,7 +664,7 @@ class UpdateMothers(UpdateView):
 	model = Parent
 	fields=['name','birthdate','age','education_level','is_3a2el','job','job_status','marital_status','national_id','mobile','work_status','salary','is_sick',
 	'disease','medecine','health_care_expenses','health_care_paid_by','want_kashf','is_atraf_sena3eya','is_3aseel_kalawy','is_surgery_needed','is_special_needs',
-	'want_project','project_idea','project_cost','project_profit','project_notes','health_care_needed','education_needed','economic_development_needed','relif_needed']
+	'want_project','project_idea','project_cost','project_profit','project_notes','health_care_needed','education_needed','economic_development_needed']
 
 
 	def get_success_url(self):
@@ -675,7 +675,7 @@ class UpdateFathers(UpdateView):
 	model = Parent
 	fields=['name','birthdate','age','education_level','is_3a2el','job','job_status','marital_status','national_id','mobile','work_status','salary','is_sick',
 	'disease','medecine','health_care_expenses','health_care_paid_by','want_kashf','is_atraf_sena3eya','is_3aseel_kalawy','is_surgery_needed','is_special_needs',
-	'want_project','project_idea','project_cost','project_profit','project_notes','health_care_needed','education_needed','economic_development_needed','relif_needed']
+	'want_project','project_idea','project_cost','project_profit','project_notes','health_care_needed','education_needed','economic_development_needed']
 
 
 	def get_success_url(self):
@@ -726,7 +726,7 @@ class UpdateHome(UpdateView):
 class FatherList(ListView):
 
 	template_name='list_father.html'
-	model = Parent
+	model = Family
 
 	def get_context_data(self, **kwargs):
 		context = super(FatherList, self).get_context_data(**kwargs)
@@ -737,7 +737,7 @@ class FatherList(ListView):
 class MotherList(ListView):
 
 	template_name='list_mother.html'
-	model = Parent
+	model = Family
 
 	def get_context_data(self, **kwargs):
 		context = super(MotherList, self).get_context_data(**kwargs)

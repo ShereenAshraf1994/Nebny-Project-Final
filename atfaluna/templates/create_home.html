@@ -1,39 +1,115 @@
+ {% extends 'template.html' %}
+{% load staticfiles %}
+
+	{% block title%}
+  
+		
+	{% endblock %}
+	{% block blocks %}
+	{% endblock %}
+
+	{% block information %}
+<br><Br><Br>
+
+<h1><font color="red"> <p  color='red' align="centre">بيانات المنزل</p></font></h1>
 <form action="" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
-بيانات المنزل
-		<h3>العنوان<br><h3>
-		{{form.address}}<br>
-		  نوع البناء<br><h3>
-		{{form.building_status}}<br>
-		الحوائط <br><h3>
-		{{form.wall_status}}<br>
-		الاسقف<br><h3>
-		{{form.roof_status}}<br>
-		الارضيات <br><h3>
-		{{form.floor_status}}<br>
-		هل يوجد مطبخ؟<br><h3>
-		{{form.kitchen}}<br>
-		الحمام<br><h3>
-		{{form.toilet}}<br>
-		الصرف الصحى<br><h3>
-		{{form.sarf_sehy}}<br>
-		شبكة مياه<br><h3>
-		{{form.water_shabaka}}<br>
-		الاجهزة الكهربائية الناقصة<br><h3>
-		{{form.electrical_equipments_needed}}<br>
-		الاجهزة الكهربائية الرديئة<br><h3>
-		{{form.electrical_equipments_radee2a}}<Br>
-		الاثاث الناقص<br><h3>
-		{{form.furniture_needed}}<br>
-		الاثاث الردىء<br><h3>
-		{{form.furniture_radee2}}<br>
-		عدد الغرف بدون المطبخ و الحمام<br><h3>
-		{{form.living_rooms_no}}<br>
-		Forward Case to :<br>
 
 
-			Relif<br>
-		{{form.relif_needed}}<br>
+	<table style="width:100%" color=''class="table table-striped table-bordered table-hover">
+
+  <tr>
+  <td><h3><font color='blue'>هل يوجد الصرف الصحى</td>
+     <td><h3><font color='blue'>الحمام</td>
+     <td><h3> <font color='blue'>هل يوجد مطبخ؟</td>
+     <td><h3><font color='blue'>الارضيات</td>
+      <td><h3><font color='blue'> الاسقف</td>
+        <td><h3><font color='blue'>الحوائط</td>
+     <td><h3><font color='blue'>نوع البناء</td> 
+     <td><h3><font color='blue'>العنوان</td>
+     </font>
+
+  </tr>
+  <tr>
+ <td> {{form.sarf_sehy}}</td>
+	<td>{{form.toilet}}</td>
+	<td>{{form.kitchen}}</td>
+<td>{{form.floor_status}}</td>
 
 
-		        <input type="submit" value="Submit">
-    </form>
+<td>{{form.roof_status}}</td>
+	<td>{{form.wall_status}}</td>
+		
+	<td>{{form.building_status}}</td>
+<td>{{form.address}}</td>
+  </tr>
+</table><br>
+
+
+	
+<table style="width:100%" class="table table-striped table-bordered table-hover">
+  <tr>
+
+
+ 	 <td><h3><font color='blue'>عدد الغرف بدون المطبخ و الحمام</td> 
+     <td><h3><font color='blue'>الاثاث الردىء</td>
+
+
+		<td><h3><font color='blue'>الاثاث الناقص</td>
+
+	<td><h3><font color='blue'>الاجهزة الكهربائية الرديئة</td>
+	<td><h3><font color='blue'>الاجهزة الكهربائية الناقصة</td>   	
+ 	 <td><h3><font color='blue'>هل يوجد شبكة مياه</td> 
+  
+
+
+  </tr>
+  <tr>
+    
+
+
+<td>{{form.living_rooms_no}}</td> <br>
+
+ <td>{{form.furniture_radee2}}</td>
+
+  <td>	{{form.furniture_needed}}</td>
+ <td>{{form.electrical_equipments_radee2a}}</td>
+
+  <td>{{form.electrical_equipments_needed}}</td>
+
+<td>{{form.water_shabaka}}</td> <br>
+
+
+	</tr>
+  </table><br>
+
+ 
+<br><br>
+<h3><font color='blue'>Forward Case To:</font><br><br>
+
+Relif Committie:</h3>
+{{form.relif_needed}}<br><br>
+
+
+	
+
+
+
+
+
+ <h3><input type="submit" value="Next">
+
+
+
+{% endblock %}
+	
+
+
+
+  
+    <script src='{% static "plugins/dataTables/jquery.dataTables.js" %}'></script>
+    <script src='{% static "plugins/dataTables/dataTables.bootstrap.js" %}'></script>
+    <script>
+         $(document).ready(function () {
+             $('#dataTables-example').dataTable();
+         });
+    </script>

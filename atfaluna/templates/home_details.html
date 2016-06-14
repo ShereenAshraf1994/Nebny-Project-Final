@@ -1,45 +1,204 @@
-
-{% extends 'template.html' %}
+ {% extends 'template.html' %}
 {% load staticfiles %}
 
 	{% block title%}
-		<h1> بيانات الاسرة</h1>
+  
+		
 	{% endblock %}
 	{% block blocks %}
 	{% endblock %}
 
 	{% block information %}
+<br><Br><Br>
 
-		<h3>العنوان<br><h3>
-		{{object.address}}<br>
-		  نوع البناء<br><h3>
-		{{object.building_status}}<br>
-		الحوائط <br><h3>
-		{{object.wall_status}}<br>
-		الاسقف<br><h3>
-		{{object.roof_status}}<br>
-		الارضيات <br><h3>
-		{{object.floor_status}}<br>
-		هل يوجد مطبخ؟<br><h3>
-		{{object.kitchen}}<br>
-		الحمام<br><h3>
-		{{object.toilet}}<br>
-		الصرف الصحى<br><h3>
-		{{object.sarf_sehy}}<br>
-		شبكة مياه<br><h3>
-		{{object.water_shabaka}}<br>
-		الاجهزة الكهربائية الناقصة<br><h3>
-		{{object.electrical_equipments_needed}}<br>
-		الاجهزة الكهربائية الرديئة<br><h3>
-		{{object.electrical_equipments_radee2a}}<Br>
-		الاثاث الناقص<br><h3>
-		{{object.furniture_needed}}<br>
-		الاثاث الردىء<br><h3>
-		{{object.furniture_radee2}}<br>
-		عدد الغرف بدون المطبخ و الحمام<br><h3>
-		{{object.living_rooms_no}}<br>
+<h1><font color="red"> <p  color='red' align="centre">بيانات المنزل</p></font></h1>
+<form action="" method="post" role="object" enctype="multipart/object-data">{% csrf_token %}
 
-<a href="{% url 'family-details' family.pk %}"> بيانات اسرة المنزل</a><br><br>
-<a href="{% url 'update-home' object.pk %}">تغيير بيانات المنزل</a><br><br>
 
-{% endblock %} 
+	<table style="width:100%" color=''class="table table-striped table-bordered table-hover">
+
+  <tr>
+  <td><h3><font color='blue'>هل يوجد الصرف الصحى</td>
+     <td><h3><font color='blue'>الحمام</td>
+     <td><h3> <font color='blue'>هل يوجد مطبخ؟</td>
+     <td><h3><font color='blue'>الارضيات</td>
+      <td><h3><font color='blue'> الاسقف</td>
+        <td><h3><font color='blue'>الحوائط</td>
+     <td><h3><font color='blue'>نوع البناء</td> 
+     <td><h3><font color='blue'>العنوان</td>
+     </font>
+
+  </tr>
+  <tr>
+  {% if object.sarf_sehy == True %}
+  <td><h3>نعم</td>
+  {% else %}
+  <td><h3>لا</td>
+  {% endif %}
+
+	
+  {% if object.toilet == '1' %}
+  <td>  مشترك </td>
+  {% endif %}
+{% if object.toilet == '2' %}
+  <td> خاص  </td>
+  {% endif %}
+
+  {% if object.kitchen == True %}
+  <td><h3>نعم</td>
+  {% else %}
+  <td><h3>لا</td>
+  {% endif %}
+
+{% if object.floor_status == '1' %}
+<td>   سيراميك </td>
+{% endif %}
+{% if object.floor_status == '2' %}
+<td>   خشب </td>
+{% endif %}
+{% if object.floor_status == '3' %}
+<td>  بلاط  </td>
+{% endif %}
+{% if object.floor_status == '4' %}
+<td>  اسمنت  </td>
+{% endif %}
+{% if object.floor_status == '5' %}
+<td>  اخرى  </td>
+{% endif %}
+
+
+{% if object.roof_status == '1' %}
+<td> اسمنت</td>
+{% endif %}
+{% if object.roof_status == '2' %}
+<td>خشب </td>
+{% endif %}
+{% if object.roof_status == '3' %}
+<td> قش</td>
+{% endif %}
+{% if object.roof_status == '4' %}
+<td> صفيح</td>
+{% endif %}
+{% if object.roof_status == '5' %}
+<td> اخرى</td>
+{% endif %}
+
+
+  {% if object.wall_status == '1' %}
+<td>  طوب متبيض  </td>
+  {% endif %}
+ {% if object.wall_status == '2' %}
+ <td>  طوب احمر  </td>   
+{% endif %}
+ {% if object.wall_status == '3' %}
+  <td>  خشب  </td>   
+{% endif %}
+ {% if object.wall_status == '4' %}
+ <td>   صفيح </td> 
+{% endif %}
+ {% if object.wall_status == '5' %}
+<td>  طوب لبن  </td>  
+{% endif %}
+ {% if object.wall_status == '6' %}
+ <td>  اخرى'  </td>
+{% endif %}
+
+  {% if object.building_status == '1' %}
+  <td>  طوب متبيض  </td>
+  {% endif %}
+  {% if object.building_status == '2' %}
+  <td>  طوب احمر  </td>
+  {% endif %}
+  {% if object.building_status == '3' %}
+  <td>  خشب  </td>
+  {% endif %}
+  {% if object.building_status == '4' %}
+  <td>   صفيح </td>
+  {% endif %}
+  {% if object.building_status == '5' %}
+  <td>  طوب لبن  </td>
+  {% endif %}
+  {% if object.building_status == '6' %}
+  <td>  اخرى'  </td>
+  {% endif %}
+  
+
+<td>{{object.address}}</td>
+  </tr>
+</table><br>
+
+
+	
+<table style="width:100%" class="table table-striped table-bordered table-hover">
+  <tr>
+
+
+ 	 <td><h3><font color='blue'>عدد الغرف بدون المطبخ و الحمام</td> 
+     <td><h3><font color='blue'>الاثاث الردىء</td>
+
+
+		<td><h3><font color='blue'>الاثاث الناقص</td>
+
+	<td><h3><font color='blue'>الاجهزة الكهربائية الرديئة</td>
+	<td><h3><font color='blue'>الاجهزة الكهربائية الناقصة</td>   	
+ 	 <td><h3><font color='blue'>هل يوجد شبكة مياه</td> 
+  
+
+
+  </tr>
+  <tr>
+    
+
+
+<td>{{object.living_rooms_no}}</td> <br>
+
+ <td>{{object.furniture_radee2}}</td>
+
+  <td>	{{object.furniture_needed}}</td>
+ <td>{{object.electrical_equipments_radee2a}}</td>
+
+  <td>{{object.electrical_equipments_needed}}</td>
+{% if object.water_shabaka == True %}
+  <td><h3>نعم</td>
+  {% else %}
+  <td><h3>لا</td>
+  {% endif %}
+
+
+
+	</tr>
+  </table><br>
+
+ 
+<br><br>
+
+
+
+{% if object.relif_needed == True %}
+<h3><font color='blue'> Case Forwarded To:</font> Relif Committie</h3><br><br>
+<br><br>
+
+{% endif %}
+	
+
+
+
+
+
+
+
+
+
+{% endblock %}
+	
+
+
+
+  
+    <script src='{% static "plugins/dataTables/jquery.dataTables.js" %}'></script>
+    <script src='{% static "plugins/dataTables/dataTables.bootstrap.js" %}'></script>
+    <script>
+         $(document).ready(function () {
+             $('#dataTables-example').dataTable();
+         });
+    </script>

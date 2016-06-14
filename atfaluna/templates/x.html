@@ -12,7 +12,7 @@
 <br><Br><Br>
 
 <h1><font color="red"> <p  color='red' align="centre">بيانات الطفل</p></font></h1>
-<form action="" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
+<object action="" method="post" role="object" enctype="multipart/object-data">{% csrf_token %}
 
 
   <table style="width:100%" color=''class="table table-striped table-bordered table-hover">
@@ -26,21 +26,21 @@
         <td><h3><font color='blue'>السنة الدراسية</td>
      <td><h3><font color='blue'>تاريخ الميلاد</td> 
      <td><h3><font color='blue'>الاسم</td>
-     </font>
+     </font></h3>
 
   </tr>
   <tr>
- <td> {{form.doros_needed}}</td>
-  <td>{{form.doros_expenses}}</td>
-  <td>{{form.doros_type}}</td>
-<td>{{form.doros_number}}</td>
+ <td> {{object.doros_needed}}</td>
+  <td>{{object.doros_expenses}}</td>
+  <td>{{object.doros_type}}</td>
+<td>{{object.doros_number}}</td>
 
 
-<td>{{form.school_name}}</td>
-  <td>{{form.education_level}}</td>
+<td>{{object.school_name}}</td>
+  <td>{{object.education_level}}</td>
     
-  <td>{{form.birthdate}}</td>
-<td>{{form.name}}</td>
+  <td>{{object.birthdate}}</td>
+<td>{{object.name}}</td>
   </tr>
 </table><br>
 
@@ -60,7 +60,7 @@
 
   <td><h3><font color='blue'>هل يعمل؟</td>
   <td><h3><font color='blue'>إذا كان خريج، إكتب المؤهل</td>    
-   <td><h3><font color='blue'>خريج</td> 
+   <td><h3><font color='blue'>خريج</td> </h3>
   
 
 
@@ -68,21 +68,33 @@
   <tr>
 >
     
- <td>{{form.health_care_expenses}}</td>
+ <td>{{object.health_care_expenses}}</td>
 
-  <td>{{form.medecine}}</td>
+  <td>{{object.medecine}}</td>
 
-<td>{{form.disease}}</td> 
-<td>{{form.is_sick}}</td>
+<td>{{object.disease}}</td>
+{% if object.is_sick == True %}
+  <td>نعم</td>
+  {% else %}
+  <td>لا</td>
+  {% endif %}
 
- <td>{{form.salary}} {{form.per}}</td>
 
-  <td>{{form.work}}</td>
- <td>{{form.is_worker}}</td>
 
-  <td>{{form.gradutae_degree}}</td>
+ <td>{{object.salary}} {{object.per}}</td>
 
-<td>{{form.is_graduate}}</td> <br>
+  <td>{{object.work}}</td>
+ <td>{{object.is_worker}}</td>
+
+  <td>{{object.gradutae_degree}}</td>
+
+{% if object.is_graduate == True %}
+  <td>نعم</td>
+  {% else %}
+  <td>لا</td>
+  {% endif %}
+
+
 
 
   </tr>
@@ -107,27 +119,66 @@
   <td><h3><font color='blue'> جهة الانفاق على العلاج</td>
   </tr>
 <tr>
+</h3>
+{% if object.is_special_needs == True %}
+  <td>نعم</td>
+  {% else %}
+  <td>لا</td>
+  {% endif %}
+{% if object.is_surgery_needed == True %}
+  <td>نعم</td>
+  {% else %}
+  <td>لا</td>
+  {% endif %}
+{% if object.is_3aseel_kalawy == True %}
+  <td>نعم</td>
+  {% else %}
+  <td>لا</td>
+  {% endif %}
 
-<td>{{form.is_special_needs}}</td>
-<td>{{form.is_surgery_needed}}</td>
-<td>{{form.is_3aseel_kalawy}}</td>
-<td>{{form.is_atraf_sena3eya}}</td>
-<td>{{form.want_kashf}}</td>
-<td>{{form.health_care_paid_by}}</td>
+{% if object.is_atraf_sena3eya == True %}
+  <td>نعم</td>
+  {% else %}
+  <td>لا</td>
+  {% endif %}
+
+{% if object.want_kashf == True %}
+  <td>نعم</td>
+  {% else %}
+  <td>لا</td>
+  {% endif %}
+  {% if object.health_care_paid_by == '1' %}
+  <td>علي نفقته</td>
+  {% endif %}
+  {% if object.health_care_paid_by == '2' %}
+  <td>التأمين الصحي</td>
+  {% endif %}
+  {% if object.health_care_paid_by == '3' %}
+  <td>متبرع</td>
+  {% endif %}
+  {% if object.health_care_paid_by == '4'%}
+  <td>نفقة الدول</td>
+  {% endif %}
+
   </tr>
 </table><br>
   
 <br><br>
-<h3><font color='blue'>Forward Case To:</font><br><br>
+<h3><font color='blue'> Case Sent To:</font>
 
-HealthCare:</h3>
-{{form.health_care_needed}}<br><br>
-<h3>Education:</h3>
-{{form.education_needed}}<br><br>
-<h3>Economic Development:</h3>
-{{form.economic_development_needed}}<br><br>
-<h3>Relif :</h3>
-{{form.relif_needed}}<br><br>
+
+{% if object.health_care_needed == True %}<br><br>
+HealthCare
+{% endif %}
+Education
+
+{% if object.education_needed == True %}<br><br>
+Education
+{% endif %}
+
+{% if object.economic_development_needed == True %}<br><br>
+Economic Development
+{% endif %}
 
   
 
@@ -135,7 +186,15 @@ HealthCare:</h3>
 
 
 
- <h3><input type="submit" value="Next">
+{% if member.committie.name == 'Databasing' %}
+
+ <h3> <a href="{% url 'family-details' family.pk %}"> بيانات اسرة الطفل</a><br><br>  
+{% endif %}
+
+{% if member == family_member %} 
+  <h3><a href="{% url 'update-child' object.pk %}">تغيير بيانات الطفل</a><br><br>
+{% endif %}
+
 
 
 

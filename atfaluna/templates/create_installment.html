@@ -1,22 +1,65 @@
+ {% extends 'template.html' %}
+{% load staticfiles %}
+
+	{% block title%}
+  
+		
+	{% endblock %}
+	{% block blocks %}
+	{% endblock %}
+
+	{% block information %}
+<br><Br><Br>
+
+<h1><font color="red"> <p  color='red' align="centre">هل يوجد اقساط؟</p></font></h1>
 <form action="" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
-<h2>هل يوجد اقساط?</h2>
 
 
-<h3>الشئ المشترى<br>
-{{form.name}}<br>
+	<table style="width:100%" color=''class="table table-striped table-bordered table-hover">
 
-قيمة القسط الواحد<br>
+  <tr>
 
-{{form.installment_value}}<br>
+        <td><h3><font color='blue'>عدد الاقساط المتبقية</td>
+     <td><h3><font color='blue'>قيمة القسط الواحد</td> 
+     <td><h3><font color='blue'>الشئ المشترى</td>
+     </font>
 
- عدد الاقساط المتبقية<br>
- {{form.no_installments_left}}<br>
+  </tr>
+  <tr>
+ <td>  {{form.no_installments_left}}</td>
+	<td>{{form.installment_value}}</td>
+	<td>{{form.name}}</td>
+
+  </tr>
+</table><br>
+
+
+	
+
+
+ 
+<br><br>
+
+	
 
 
 
 
 
+ <h3><input type="submit" value="Next">
 
 
-        <input type="submit" value="Next">
-    </form>
+
+{% endblock %}
+	
+
+
+
+  
+    <script src='{% static "plugins/dataTables/jquery.dataTables.js" %}'></script>
+    <script src='{% static "plugins/dataTables/dataTables.bootstrap.js" %}'></script>
+    <script>
+         $(document).ready(function () {
+             $('#dataTables-example').dataTable();
+         });
+    </script>

@@ -1,0 +1,45 @@
+
+{% extends 'template.html' %}
+{% load staticfiles %}
+
+	{% block title%}
+		<h1> بيانات الاسرة</h1>
+	{% endblock %}
+	{% block blocks %}
+	{% endblock %}
+
+	{% block information %}
+
+		<h3>العنوان<br><h3>
+		{{object.address}}<br>
+		  نوع البناء<br><h3>
+		{{object.building_status}}<br>
+		الحوائط <br><h3>
+		{{object.wall_status}}<br>
+		الاسقف<br><h3>
+		{{object.roof_status}}<br>
+		الارضيات <br><h3>
+		{{object.floor_status}}<br>
+		هل يوجد مطبخ؟<br><h3>
+		{{object.kitchen}}<br>
+		الحمام<br><h3>
+		{{object.toilet}}<br>
+		الصرف الصحى<br><h3>
+		{{object.sarf_sehy}}<br>
+		شبكة مياه<br><h3>
+		{{object.water_shabaka}}<br>
+		الاجهزة الكهربائية الناقصة<br><h3>
+		{{object.electrical_equipments_needed}}<br>
+		الاجهزة الكهربائية الرديئة<br><h3>
+		{{object.electrical_equipments_radee2a}}<Br>
+		الاثاث الناقص<br><h3>
+		{{object.furniture_needed}}<br>
+		الاثاث الردىء<br><h3>
+		{{object.furniture_radee2}}<br>
+		عدد الغرف بدون المطبخ و الحمام<br><h3>
+		{{object.living_rooms_no}}<br>
+
+<a href="{% url 'family-details' family.pk %}"> بيانات اسرة المنزل</a><br><br>
+<a href="{% url 'update-home' object.pk %}">تغيير بيانات المنزل</a><br><br>
+
+{% endblock %} 
