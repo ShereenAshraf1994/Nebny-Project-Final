@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication',
     'atfaluna',
+    'django_bootstrap_calendar',
 ]
 
 MIDDLEWARE_CLASSES = [

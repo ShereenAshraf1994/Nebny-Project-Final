@@ -1,16 +1,16 @@
 ﻿{% extends 'template.html' %}
 {% load staticfiles %}
    
-
-
-
-    <!-- END PAGE LEVEL  STYLES -->
+ LES -->
        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->   
 
         {% block everything %}
          <!--PAGE CONTENT -->
-          <link rel="stylesheet" href='{% static "plugins/fullcalendar-1.6.2/fullcalendar/fullcalendar.css" %}' />
-    <link rel="stylesheet" href='{% static "css/calendar.css" %}' />
+           {% block title %}
+   <link rel="stylesheet" href='{% static "plugins/fullcalendar-1.6.2/fullcalendar/fullcalendar.css" %}' />
+          <link rel="stylesheet" href='{% static "css/calendar.css" %}' />
+          {% endblock %}
+       
         <div id="content">
 
             <div class="inner">
